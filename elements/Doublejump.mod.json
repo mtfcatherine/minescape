@@ -1,0 +1,10 @@
+{
+  "_fv": 89,
+  "_type": "command",
+  "definition": {
+    "commandName": "setdoublejump",
+    "type": "STANDARD",
+    "permissionLevel": "2",
+    "argsxml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><block type=\"args_start\" deletable=\"false\" x=\"444\" y=\"122\"><next><block type=\"string\"><field name=\"type\">word</field><field name=\"name\">max</field><statement name=\"args\"><block type=\"number_default\"><field name=\"name\">value</field><statement name=\"args\"><block type=\"call_procedure\"><field name=\"procedure\">SetDoubleJumpMax</field></block></statement></block></statement><next><block type=\"string\"><field name=\"type\">word</field><field name=\"name\">amount</field><statement name=\"args\"><block type=\"number_default\"><field name=\"name\">value</field><statement name=\"args\"><block type=\"call_procedure\"><field name=\"procedure\">SetDoubleJumpAmount</field></block></statement></block></statement></block></next></block></next></block></xml>"
+  }
+}

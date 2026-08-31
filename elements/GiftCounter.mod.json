@@ -1,0 +1,56 @@
+{
+  "_fv": 89,
+  "_type": "overlay",
+  "definition": {
+    "priority": "NORMAL",
+    "components": [
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_get_gift_count",
+          "text": {
+            "fixedValue": "",
+            "name": "GetGiftCount"
+          },
+          "color": {
+            "value": -6750055,
+            "falpha": 0.0
+          },
+          "hasShadow": true,
+          "anchorPoint": "BOTTOM_RIGHT",
+          "x": 62,
+          "y": 224,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_get_gold_count",
+          "text": {
+            "fixedValue": "",
+            "name": "GetGoldCount"
+          },
+          "color": {
+            "value": -256,
+            "falpha": 0.0
+          },
+          "hasShadow": true,
+          "anchorPoint": "BOTTOM_RIGHT",
+          "x": 62,
+          "y": 208,
+          "locked": false
+        }
+      }
+    ],
+    "baseTexture": "",
+    "overlayTarget": "Ingame",
+    "gridSettings": {
+      "sx": 16,
+      "sy": 16,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": true
+    }
+  }
+}

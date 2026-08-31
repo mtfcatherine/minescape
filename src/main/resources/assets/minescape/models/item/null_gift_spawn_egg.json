@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "minescape:item/null_gift_spawn_egg_generated"
+  }
+}

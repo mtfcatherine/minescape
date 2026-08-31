@@ -1,0 +1,37 @@
+{
+  "_fv": 89,
+  "_type": "overlay",
+  "definition": {
+    "priority": "NORMAL",
+    "components": [
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_get_double_jumps",
+          "text": {
+            "fixedValue": "",
+            "name": "GetDoubleJumps"
+          },
+          "color": {
+            "value": -13369345,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "anchorPoint": "BOTTOM_LEFT",
+          "x": 302,
+          "y": 224,
+          "locked": false
+        }
+      }
+    ],
+    "baseTexture": "",
+    "overlayTarget": "Ingame",
+    "gridSettings": {
+      "sx": 16,
+      "sy": 16,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": true
+    }
+  }
+}

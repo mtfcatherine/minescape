@@ -1,0 +1,16 @@
+{
+  "entity.minescape.null_gift": "Null Gift",
+  "item.minescape.null_gift_spawn_egg": "Null Gift Spawn Egg",
+  "subtitles.collect": "Gift Collected",
+  "key.minescape.doublejump": "DoubleJump",
+  "item.minescape.node_gift_spawn_egg": "Node Gift Spawn Egg",
+  "entity.minescape.node_gift": "Node Gift",
+  "entity.minescape.gold_gift": "Gold Gift",
+  "item.minescape.gold_gift_spawn_egg": "Gold Gift Spawn Egg",
+  "subtitles.goldcollect": "Gold Gift Collected",
+  "item.minescape.pedestal": "Pedestal",
+  "item.minescape.node_front_spawn_egg": "Node Front Spawn Egg",
+  "entity.minescape.node_front": "Node Front",
+  "entity.minescape.node_back": "Node Back",
+  "item.minescape.node_back_spawn_egg": "Node Back Spawn Egg"
+}

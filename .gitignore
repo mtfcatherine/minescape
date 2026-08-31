@@ -1,0 +1,17 @@
+# MCreator workspace junk — keep the source, drop the generated/build stuff
+/build/
+/run/
+/.gradle/
+/gradle/
+/.mcreator/cache/
+*.iml
+.idea/
+.vscode/
+/.eclipse
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Structure NBT files are source content, not build output — keep them.
+# (MCreator normally puts them under src/main/resources/data/<modid>/structures/)
