@@ -12,6 +12,7 @@ import net.minecraft.world.item.SpawnEggItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.BlockItem;
 
+import net.mcreator.minescape.item.TileWandItem;
 import net.mcreator.minescape.MinescapeMod;
 
 import java.util.function.Function;
@@ -24,6 +25,9 @@ public class MinescapeModItems {
 	public static final DeferredItem<Item> PEDESTAL;
 	public static final DeferredItem<Item> NODE_FRONT_SPAWN_EGG;
 	public static final DeferredItem<Item> NODE_BACK_SPAWN_EGG;
+	public static final DeferredItem<Item> NODE_LEFT_SPAWN_EGG;
+	public static final DeferredItem<Item> NODE_RIGHT_SPAWN_EGG;
+	public static final DeferredItem<Item> TILE_WAND;
 	static {
 		NULL_GIFT_SPAWN_EGG = register("null_gift_spawn_egg", properties -> new SpawnEggItem(properties.spawnEgg(MinescapeModEntities.NULL_GIFT.get())));
 		NODE_GIFT_SPAWN_EGG = register("node_gift_spawn_egg", properties -> new SpawnEggItem(properties.spawnEgg(MinescapeModEntities.NODE_GIFT.get())));
@@ -31,6 +35,9 @@ public class MinescapeModItems {
 		PEDESTAL = block(MinescapeModBlocks.PEDESTAL);
 		NODE_FRONT_SPAWN_EGG = register("node_front_spawn_egg", properties -> new SpawnEggItem(properties.spawnEgg(MinescapeModEntities.NODE_FRONT.get())));
 		NODE_BACK_SPAWN_EGG = register("node_back_spawn_egg", properties -> new SpawnEggItem(properties.spawnEgg(MinescapeModEntities.NODE_BACK.get())));
+		NODE_LEFT_SPAWN_EGG = register("node_left_spawn_egg", properties -> new SpawnEggItem(properties.spawnEgg(MinescapeModEntities.NODE_LEFT.get())));
+		NODE_RIGHT_SPAWN_EGG = register("node_right_spawn_egg", properties -> new SpawnEggItem(properties.spawnEgg(MinescapeModEntities.NODE_RIGHT.get())));
+		TILE_WAND = register("tile_wand", TileWandItem::new);
 	}
 
 	// Start of user code block custom items

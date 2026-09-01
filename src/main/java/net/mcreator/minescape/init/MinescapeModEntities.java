@@ -17,11 +17,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.Identifier;
 import net.minecraft.core.registries.Registries;
 
-import net.mcreator.minescape.entity.NullGiftEntity;
-import net.mcreator.minescape.entity.NodeGiftEntity;
-import net.mcreator.minescape.entity.NodeFrontEntity;
-import net.mcreator.minescape.entity.NodeBackEntity;
-import net.mcreator.minescape.entity.GoldGiftEntity;
+import net.mcreator.minescape.entity.*;
 import net.mcreator.minescape.MinescapeMod;
 
 @EventBusSubscriber
@@ -47,6 +43,14 @@ public class MinescapeModEntities {
 			EntityType.Builder.<NodeBackEntity>of(NodeBackEntity::new, MobCategory.AMBIENT).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).fireImmune()
 
 					.notInPeaceful().sized(0.2f, 0.2f));
+	public static final DeferredHolder<EntityType<?>, EntityType<NodeLeftEntity>> NODE_LEFT = register("node_left",
+			EntityType.Builder.<NodeLeftEntity>of(NodeLeftEntity::new, MobCategory.AMBIENT).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).fireImmune()
+
+					.notInPeaceful().sized(0.2f, 0.2f));
+	public static final DeferredHolder<EntityType<?>, EntityType<NodeRightEntity>> NODE_RIGHT = register("node_right",
+			EntityType.Builder.<NodeRightEntity>of(NodeRightEntity::new, MobCategory.AMBIENT).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).fireImmune()
+
+					.notInPeaceful().sized(0.2f, 0.2f));
 
 	// Start of user code block custom entities
 	// End of user code block custom entities
@@ -61,6 +65,8 @@ public class MinescapeModEntities {
 		GoldGiftEntity.init(event);
 		NodeFrontEntity.init(event);
 		NodeBackEntity.init(event);
+		NodeLeftEntity.init(event);
+		NodeRightEntity.init(event);
 	}
 
 	@SubscribeEvent
@@ -70,5 +76,7 @@ public class MinescapeModEntities {
 		event.put(GOLD_GIFT.get(), GoldGiftEntity.createAttributes().build());
 		event.put(NODE_FRONT.get(), NodeFrontEntity.createAttributes().build());
 		event.put(NODE_BACK.get(), NodeBackEntity.createAttributes().build());
+		event.put(NODE_LEFT.get(), NodeLeftEntity.createAttributes().build());
+		event.put(NODE_RIGHT.get(), NodeRightEntity.createAttributes().build());
 	}
 }

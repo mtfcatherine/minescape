@@ -138,7 +138,7 @@ public class MinescapeModVariables {
 		public String GiftsCollectedSTR = "";
 		public ArrayList<Object> NodeGiftPositions = new ArrayList<>();
 		public double GoldGifts = 0;
-		public double GoldGiftMultiplier = 0;
+		public double GoldGiftMultiplier = 1.0;
 		public String GoldGiftsSTR = "";
 		public Vec3 TilePos1 = Vec3.ZERO;
 		public Vec3 TilePos2 = Vec3.ZERO;

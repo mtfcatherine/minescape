@@ -8,10 +8,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.api.distmarker.Dist;
 
-import net.mcreator.minescape.client.model.Modelgift;
-import net.mcreator.minescape.client.model.ModelNodeStart;
-import net.mcreator.minescape.client.model.ModelNodeGift;
-import net.mcreator.minescape.client.model.ModelNodeEnd;
+import net.mcreator.minescape.client.model.*;
 
 @EventBusSubscriber(Dist.CLIENT)
 public class MinescapeModModels {
@@ -20,6 +17,8 @@ public class MinescapeModModels {
 		event.registerLayerDefinition(ModelNodeStart.LAYER_LOCATION, ModelNodeStart::createBodyLayer);
 		event.registerLayerDefinition(Modelgift.LAYER_LOCATION, Modelgift::createBodyLayer);
 		event.registerLayerDefinition(ModelNodeEnd.LAYER_LOCATION, ModelNodeEnd::createBodyLayer);
+		event.registerLayerDefinition(ModelNodeLeft.LAYER_LOCATION, ModelNodeLeft::createBodyLayer);
+		event.registerLayerDefinition(ModelNodeRight.LAYER_LOCATION, ModelNodeRight::createBodyLayer);
 		event.registerLayerDefinition(ModelNodeGift.LAYER_LOCATION, ModelNodeGift::createBodyLayer);
 	}
 }

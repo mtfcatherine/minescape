@@ -12,5 +12,10 @@
   "item.minescape.node_front_spawn_egg": "Node Front Spawn Egg",
   "entity.minescape.node_front": "Node Front",
   "entity.minescape.node_back": "Node Back",
-  "item.minescape.node_back_spawn_egg": "Node Back Spawn Egg"
+  "item.minescape.node_back_spawn_egg": "Node Back Spawn Egg",
+  "item.minescape.node_left_spawn_egg": "Node Left Spawn Egg",
+  "entity.minescape.node_left": "Node Left",
+  "entity.minescape.node_right": "Node Right",
+  "item.minescape.node_right_spawn_egg": "Node Right Spawn Egg",
+  "item.minescape.tile_wand": "Tile Wand"
 }
