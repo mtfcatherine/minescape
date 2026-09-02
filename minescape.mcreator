@@ -36,41 +36,6 @@
       "path": "~/Procedures"
     },
     {
-      "name": "PlaceTile",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "place_tile",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "world",
-            "type": "world"
-          },
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "arguments",
-            "type": "cmdcontext"
-          }
-        ],
-        "files": [
-          "src/main/java/net/mcreator/minescape/procedures/PlaceTileProcedure.java"
-        ]
-      },
-      "path": "~/Procedures"
-    },
-    {
       "name": "NullGift",
       "type": "livingentity",
       "compiles": true,
@@ -86,19 +51,6 @@
         ]
       },
       "path": "~/Entities/Gifts"
-    },
-    {
-      "name": "GenerateTile",
-      "type": "command",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "generatetile",
-      "metadata": {
-        "files": [
-          "src/main/java/net/mcreator/minescape/command/GenerateTileCommand.java"
-        ]
-      },
-      "path": "~/Commands"
     },
     {
       "name": "GetGiftCount",
@@ -521,6 +473,86 @@
         ]
       },
       "path": "~/Commands"
+    },
+    {
+      "name": "GenerateTiles",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "generatetiles",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/minescape/procedures/GenerateTilesProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          }
+        ]
+      },
+      "path": "~/Procedures"
+    },
+    {
+      "name": "ClearTiles",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "cleartiles",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/minescape/procedures/ClearTilesProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Procedures"
+    },
+    {
+      "name": "GenTiles",
+      "type": "command",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "gentiles",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/minescape/command/GenTilesCommand.java"
+        ]
+      },
+      "path": "~/Commands"
+    },
+    {
+      "name": "ClearTilesCmd",
+      "type": "command",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "cleartilescmd",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/minescape/command/ClearTilesCmdCommand.java"
+        ]
+      },
+      "path": "~/Commands"
     }
   ],
   "variable_elements": [
@@ -558,7 +590,31 @@
       "name": "NodeGiftPositions",
       "type": "arraylist",
       "scope": "world",
-      "value": "new ArrayList\u003c\u003e()"
+      "value": "new ArrayList<>()"
+    },
+    {
+      "name": "TileIds",
+      "type": "arraylist",
+      "scope": "world",
+      "value": "new ArrayList<>()"
+    },
+    {
+      "name": "TileWeights",
+      "type": "arraylist",
+      "scope": "world",
+      "value": "new ArrayList<>()"
+    },
+    {
+      "name": "TileFronts",
+      "type": "arraylist",
+      "scope": "world",
+      "value": "new ArrayList<>()"
+    },
+    {
+      "name": "TileBacks",
+      "type": "arraylist",
+      "scope": "world",
+      "value": "new ArrayList<>()"
     },
     {
       "name": "GoldGifts",

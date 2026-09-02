@@ -37,6 +37,11 @@ public class SaveTileProcedure {
 		Vec3 origin = Vec3.ZERO;
 		Vec3 mid = Vec3.ZERO;
 		Vec3 offset = Vec3.ZERO;
+		Vec3 frontOff = Vec3.ZERO;
+		Vec3 backOff = Vec3.ZERO;
+		boolean frontOK = false;
+		boolean backOK = false;
+		double tidx = 0;
 		Entity marker = null;
 		id = StringArgumentType.getString(arguments, "id");
 		sizeZ = DoubleArgumentType.getDouble(arguments, "sizeZ");
@@ -109,6 +114,44 @@ public class SaveTileProcedure {
 			}
 			if (world instanceof ServerLevel _level) {
 				_level.getServer().getPlayerList().broadcastSystemMessage(Component.literal(("Saved tile '" + id + "' - " + sizeX + "x" + sizeY + "x" + sizeZ + " weight " + weight)).withColor(0x009900), false);
+			}
+			frontOK = false;
+			backOK = false;
+			if (!world.getEntitiesOfClass(NodeFrontEntity.class, new AABB(Vec3.ZERO, Vec3.ZERO).move(new Vec3((mid.x()), (mid.y()), (mid.z()))).inflate(64 / 2d), e -> true).isEmpty()) {
+				marker = findEntityInWorldRange(world, NodeFrontEntity.class, (mid.x()), (mid.y()), (mid.z()), 94);
+				frontOff = new Vec3((marker.getX() - origin.x()), (marker.getY() - origin.y()), (marker.getZ() - origin.z()));
+				frontOK = true;
+			}
+			if (!world.getEntitiesOfClass(NodeBackEntity.class, new AABB(Vec3.ZERO, Vec3.ZERO).move(new Vec3((mid.x()), (mid.y()), (mid.z()))).inflate(64 / 2d), e -> true).isEmpty()) {
+				marker = findEntityInWorldRange(world, NodeBackEntity.class, (mid.x()), (mid.y()), (mid.z()), 94);
+				backOff = new Vec3((marker.getX() - origin.x()), (marker.getY() - origin.y()), (marker.getZ() - origin.z()));
+				backOK = true;
+			}
+			if (!MinescapeModVariables.WorldVariables.get(world).TileIds.contains(id)) {
+				MinescapeModVariables.WorldVariables.get(world).TileIds.add(id);
+				MinescapeModVariables.WorldVariables.get(world).markSyncDirty();
+				MinescapeModVariables.WorldVariables.get(world).TileWeights.add(weight);
+				MinescapeModVariables.WorldVariables.get(world).markSyncDirty();
+				MinescapeModVariables.WorldVariables.get(world).TileFronts.add("none");
+				MinescapeModVariables.WorldVariables.get(world).markSyncDirty();
+				MinescapeModVariables.WorldVariables.get(world).TileBacks.add("none");
+				MinescapeModVariables.WorldVariables.get(world).markSyncDirty();
+				tidx = MinescapeModVariables.WorldVariables.get(world).TileIds.indexOf(id);
+			} else {
+				tidx = MinescapeModVariables.WorldVariables.get(world).TileIds.indexOf(id);
+				MinescapeModVariables.WorldVariables.get(world).TileWeights.set((int) tidx, weight);
+				MinescapeModVariables.WorldVariables.get(world).markSyncDirty();
+			}
+			if (frontOK) {
+				MinescapeModVariables.WorldVariables.get(world).TileFronts.set((int) tidx, frontOff);
+				MinescapeModVariables.WorldVariables.get(world).markSyncDirty();
+			}
+			if (backOK) {
+				MinescapeModVariables.WorldVariables.get(world).TileBacks.set((int) tidx, backOff);
+				MinescapeModVariables.WorldVariables.get(world).markSyncDirty();
+			}
+			if (world instanceof ServerLevel _level) {
+				_level.getServer().getPlayerList().broadcastSystemMessage(Component.literal(("tile '" + id + "' registered (" + new java.text.DecimalFormat("0").format(MinescapeModVariables.WorldVariables.get(world).TileIds.size()) + " tiles total)")).withColor(0x009900), false);
 			}
 		}
 	}

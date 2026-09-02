@@ -11,17 +11,17 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.core.Direction;
 import net.minecraft.commands.Commands;
 
-import net.mcreator.minescape.procedures.PlaceTileProcedure;
+import net.mcreator.minescape.procedures.GenerateTilesProcedure;
 
-import com.mojang.brigadier.arguments.StringArgumentType;
+import com.mojang.brigadier.arguments.DoubleArgumentType;
 
 @EventBusSubscriber
-public class GenerateTileCommand {
+public class GenTilesCommand {
 	@SubscribeEvent
 	public static void registerCommand(RegisterCommandsEvent event) {
-		event.getDispatcher().register(Commands.literal("generate_tile")
+		event.getDispatcher().register(Commands.literal("generate_tiles")
 
-				.then(Commands.argument("id", StringArgumentType.word()).executes(arguments -> {
+				.then(Commands.argument("count", DoubleArgumentType.doubleArg(1)).executes(arguments -> {
 					Level world = arguments.getSource().getUnsidedLevel();
 					double x = arguments.getSource().getPosition().x();
 					double y = arguments.getSource().getPosition().y();
@@ -33,7 +33,7 @@ public class GenerateTileCommand {
 					if (entity != null)
 						direction = entity.getDirection();
 
-					PlaceTileProcedure.execute(world, x, y, z, arguments);
+					GenerateTilesProcedure.execute(world, x, y, z, arguments);
 					return 0;
 				})));
 	}

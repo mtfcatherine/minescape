@@ -137,6 +137,10 @@ public class MinescapeModVariables {
 		public double GiftsCollected = 0;
 		public String GiftsCollectedSTR = "";
 		public ArrayList<Object> NodeGiftPositions = new ArrayList<>();
+		public ArrayList<Object> TileIds = new ArrayList<>();
+		public ArrayList<Object> TileWeights = new ArrayList<>();
+		public ArrayList<Object> TileFronts = new ArrayList<>();
+		public ArrayList<Object> TileBacks = new ArrayList<>();
 		public double GoldGifts = 0;
 		public double GoldGiftMultiplier = 1.0;
 		public String GoldGiftsSTR = "";
@@ -147,6 +151,10 @@ public class MinescapeModVariables {
 			GiftsCollected = nbt.getDoubleOr("GiftsCollected", 0);
 			GiftsCollectedSTR = nbt.getStringOr("GiftsCollectedSTR", "");
 			NodeGiftPositions = NbtArrayLists.loadGlobalWorld(nbt.getListOrEmpty("NodeGiftPositions"), lookupProvider);
+			TileIds = NbtArrayLists.loadGlobalWorld(nbt.getListOrEmpty("TileIds"), lookupProvider);
+			TileWeights = NbtArrayLists.loadGlobalWorld(nbt.getListOrEmpty("TileWeights"), lookupProvider);
+			TileFronts = NbtArrayLists.loadGlobalWorld(nbt.getListOrEmpty("TileFronts"), lookupProvider);
+			TileBacks = NbtArrayLists.loadGlobalWorld(nbt.getListOrEmpty("TileBacks"), lookupProvider);
 			GoldGifts = nbt.getDoubleOr("GoldGifts", 0);
 			GoldGiftMultiplier = nbt.getDoubleOr("GoldGiftMultiplier", 0);
 			GoldGiftsSTR = nbt.getStringOr("GoldGiftsSTR", "");
@@ -158,6 +166,10 @@ public class MinescapeModVariables {
 			nbt.putDouble("GiftsCollected", GiftsCollected);
 			nbt.putString("GiftsCollectedSTR", GiftsCollectedSTR);
 			nbt.put("NodeGiftPositions", NbtArrayLists.saveGlobalWorld(NodeGiftPositions));
+			nbt.put("TileIds", NbtArrayLists.saveGlobalWorld(TileIds));
+			nbt.put("TileWeights", NbtArrayLists.saveGlobalWorld(TileWeights));
+			nbt.put("TileFronts", NbtArrayLists.saveGlobalWorld(TileFronts));
+			nbt.put("TileBacks", NbtArrayLists.saveGlobalWorld(TileBacks));
 			nbt.putDouble("GoldGifts", GoldGifts);
 			nbt.putDouble("GoldGiftMultiplier", GoldGiftMultiplier);
 			nbt.putString("GoldGiftsSTR", GoldGiftsSTR);
