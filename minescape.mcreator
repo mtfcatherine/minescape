@@ -36,6 +36,41 @@
       "path": "~/Procedures"
     },
     {
+      "name": "PlaceTile",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "place_tile",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/minescape/procedures/PlaceTileProcedure.java"
+        ]
+      },
+      "path": "~/Procedures"
+    },
+    {
       "name": "NullGift",
       "type": "livingentity",
       "compiles": true,
@@ -51,6 +86,19 @@
         ]
       },
       "path": "~/Entities/Gifts"
+    },
+    {
+      "name": "GenerateTile",
+      "type": "command",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "generatetile",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/minescape/command/GenerateTileCommand.java"
+        ]
+      },
+      "path": "~/Commands"
     },
     {
       "name": "GetGiftCount",
