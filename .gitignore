@@ -15,3 +15,9 @@ Thumbs.db
 
 # Structure NBT files are source content, not build output — keep them.
 # (MCreator normally puts them under src/main/resources/data/<modid>/structures/)
+
+# MCreator internal state (local history, backups, thumbnails, settings)
+.mcreator/localHistory/
+.mcreator/workspaceBackups/
+.mcreator/modElementThumbnails/
+.mcreator/userSettings

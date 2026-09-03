@@ -30,9 +30,9 @@ public class Modelbeacon extends EntityModel<LivingEntityRenderState> {
 		MeshDefinition meshdefinition = new MeshDefinition();
 		PartDefinition partdefinition = meshdefinition.getRoot();
 		PartDefinition model = partdefinition.addOrReplaceChild("model",
-				CubeListBuilder.create().texOffs(0, 67).addBox(-13.0F, 0.0F, -13.0F, 26.0F, 8.0F, 26.0F, new CubeDeformation(0.0F)).texOffs(80, 0).addBox(-12.0F, 8.0F, -12.0F, 24.0F, 9.0F, 24.0F, new CubeDeformation(0.0F)).texOffs(0, 101)
-						.addBox(-11.0F, 17.0F, -11.0F, 22.0F, 15.0F, 22.0F, new CubeDeformation(0.0F)).texOffs(0, 0).addBox(-10.0F, 32.0F, -10.0F, 20.0F, 47.0F, 20.0F, new CubeDeformation(0.0F)).texOffs(80, 33)
-						.addBox(-8.0F, 79.0F, -8.0F, 16.0F, 2.0F, 16.0F, new CubeDeformation(0.0F)),
+				CubeListBuilder.create().texOffs(0, 67).addBox(-13.0F, 0.0F, -13.0F, 26.0F, 8.0F, 26.0F, new CubeDeformation(0.0F)).texOffs(80, 0).addBox(-12.0F, -8.0F, -12.0F, 24.0F, 9.0F, 24.0F, new CubeDeformation(0.0F)).texOffs(0, 101)
+						.addBox(-11.0F, -17.0F, -11.0F, 22.0F, 15.0F, 22.0F, new CubeDeformation(0.0F)).texOffs(0, 0).addBox(-10.0F, -32.0F, -10.0F, 20.0F, 47.0F, 20.0F, new CubeDeformation(0.0F)).texOffs(80, 33)
+						.addBox(-8.0F, -79.0F, -8.0F, 16.0F, 2.0F, 16.0F, new CubeDeformation(0.0F)),
 				PartPose.offset(0.0F, 0.0F, 0.0F));
 		return LayerDefinition.create(meshdefinition, 256, 256);
 	}
