@@ -135,7 +135,6 @@ public class MinescapeModVariables {
 		}, instance -> instance.save(new CompoundTag(), level.registryAccess())));
 		boolean _syncDirty = false;
 		public double GiftsCollected = 0;
-		public String GiftsCollectedSTR = "";
 		public ArrayList<Object> NodeGiftPositions = new ArrayList<>();
 		public ArrayList<Object> TileIds = new ArrayList<>();
 		public ArrayList<Object> TileWeights = new ArrayList<>();
@@ -149,10 +148,10 @@ public class MinescapeModVariables {
 		public Vec3 TilePos2 = Vec3.ZERO;
 		public double playersBeaconed = 0;
 		public double playersAlive = 0;
+		public String GiftsSTR = "";
 
 		public void read(CompoundTag nbt, HolderLookup.Provider lookupProvider) {
 			GiftsCollected = nbt.getDoubleOr("GiftsCollected", 0);
-			GiftsCollectedSTR = nbt.getStringOr("GiftsCollectedSTR", "");
 			NodeGiftPositions = NbtArrayLists.loadGlobalWorld(nbt.getListOrEmpty("NodeGiftPositions"), lookupProvider);
 			TileIds = NbtArrayLists.loadGlobalWorld(nbt.getListOrEmpty("TileIds"), lookupProvider);
 			TileWeights = NbtArrayLists.loadGlobalWorld(nbt.getListOrEmpty("TileWeights"), lookupProvider);
@@ -166,11 +165,11 @@ public class MinescapeModVariables {
 			TilePos2 = Vec3.CODEC.parse(NbtOps.INSTANCE, nbt.get("TilePos2")).result().orElse(Vec3.ZERO);
 			playersBeaconed = nbt.getDoubleOr("playersBeaconed", 0);
 			playersAlive = nbt.getDoubleOr("playersAlive", 0);
+			GiftsSTR = nbt.getStringOr("GiftsSTR", "");
 		}
 
 		public CompoundTag save(CompoundTag nbt, HolderLookup.Provider lookupProvider) {
 			nbt.putDouble("GiftsCollected", GiftsCollected);
-			nbt.putString("GiftsCollectedSTR", GiftsCollectedSTR);
 			nbt.put("NodeGiftPositions", NbtArrayLists.saveGlobalWorld(NodeGiftPositions));
 			nbt.put("TileIds", NbtArrayLists.saveGlobalWorld(TileIds));
 			nbt.put("TileWeights", NbtArrayLists.saveGlobalWorld(TileWeights));
@@ -184,6 +183,7 @@ public class MinescapeModVariables {
 			nbt.put("TilePos2", Vec3.CODEC.encodeStart(NbtOps.INSTANCE, TilePos2).result().orElseGet(CompoundTag::new));
 			nbt.putDouble("playersBeaconed", playersBeaconed);
 			nbt.putDouble("playersAlive", playersAlive);
+			nbt.putString("GiftsSTR", GiftsSTR);
 			return nbt;
 		}
 
@@ -211,13 +211,16 @@ public class MinescapeModVariables {
 		}, instance -> instance.save(new CompoundTag(), level.registryAccess())));
 		boolean _syncDirty = false;
 		public double playersDead = 0;
+		public double GeneratedGifts = 0;
 
 		public void read(CompoundTag nbt, HolderLookup.Provider lookupProvider) {
 			playersDead = nbt.getDoubleOr("playersDead", 0);
+			GeneratedGifts = nbt.getDoubleOr("GeneratedGifts", 0);
 		}
 
 		public CompoundTag save(CompoundTag nbt, HolderLookup.Provider lookupProvider) {
 			nbt.putDouble("playersDead", playersDead);
+			nbt.putDouble("GeneratedGifts", GeneratedGifts);
 			return nbt;
 		}
 

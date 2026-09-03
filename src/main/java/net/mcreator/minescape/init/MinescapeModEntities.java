@@ -54,7 +54,7 @@ public class MinescapeModEntities {
 	public static final DeferredHolder<EntityType<?>, EntityType<BeaconEntity>> BEACON = register("beacon",
 			EntityType.Builder.<BeaconEntity>of(BeaconEntity::new, MobCategory.AMBIENT).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).fireImmune()
 
-					.notInPeaceful().sized(0.6f, 1.8f));
+					.notInPeaceful().sized(1.6f, 5f));
 
 	// Start of user code block custom entities
 	// End of user code block custom entities

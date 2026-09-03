@@ -45,6 +45,9 @@ public class OnCollectProcedure {
 						_level.playLocalSound(x, y, z, BuiltInRegistries.SOUND_EVENT.getValue(Identifier.parse("minescape:collect")), SoundSource.MASTER, (float) 0.2, (float) Mth.nextDouble(RandomSource.create(), 0.97, 1.05), false);
 					}
 				}
+				if (MinescapeModVariables.WorldVariables.get(world).GiftsCollected == MinescapeModVariables.MapVariables.get(world).GeneratedGifts) {
+					CollapseHandelerProcedure.execute(world);
+				}
 			} else {
 				MinescapeMod.LOGGER.info("how the fuck did this fire??");
 			}

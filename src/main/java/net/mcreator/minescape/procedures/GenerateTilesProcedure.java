@@ -95,6 +95,22 @@ public class GenerateTilesProcedure {
 							for (Entity entityiterator : world.getEntitiesOfClass(Entity.class, new AABB(_center, _center).inflate((sizeV.x() + sizeV.z()) / 2d), e -> true).stream()
 									.sorted(Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_center))).toList()) {
 								if (entityiterator instanceof NodeGiftEntity) {
+									MinescapeModVariables.MapVariables.get(world).GeneratedGifts = new Object() {
+										public double change(Object _obj) {
+											if (_obj instanceof Integer _i)
+												return _i + 1;
+											if (_obj instanceof Long _l)
+												return _l + 1;
+											if (_obj instanceof Float _f)
+												return _f + 1.0f;
+											if (_obj instanceof Double _d)
+												return _d + 1.0d;
+											if (_obj instanceof Number _n)
+												return _n.doubleValue() + 1;
+											return 0;
+										}
+									}.change(count);
+									MinescapeModVariables.MapVariables.get(world).markSyncDirty();
 									if (world instanceof ServerLevel _level) {
 										Entity entityToSpawn = MinescapeModEntities.NULL_GIFT.get().spawn(_level, BlockPos.containing(entityiterator.getX(), entityiterator.getY(), entityiterator.getZ()), EntitySpawnReason.MOB_SUMMONED);
 										if (entityToSpawn != null) {
@@ -109,7 +125,7 @@ public class GenerateTilesProcedure {
 							}
 						}
 						if (MinescapeModVariables.WorldVariables.get(world).TileFronts.get((int) idx) instanceof Vec3) {
-							frontOff = MinescapeModVariables.WorldVariables.get(world).TileFronts.get((int) idx) instanceof Vec3 _vector37 ? _vector37 : Vec3.ZERO;
+							frontOff = MinescapeModVariables.WorldVariables.get(world).TileFronts.get((int) idx) instanceof Vec3 _vector38 ? _vector38 : Vec3.ZERO;
 							cursorX = ox + frontOff.x();
 							cursorY = oy + frontOff.y();
 							cursorZ = oz + frontOff.z();

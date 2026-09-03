@@ -53,26 +53,6 @@
       "path": "~/Entities/Gifts"
     },
     {
-      "name": "GetGiftCount",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "get_gift_count",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ],
-        "return_type": "string",
-        "files": [
-          "src/main/java/net/mcreator/minescape/procedures/GetGiftCountProcedure.java"
-        ]
-      },
-      "path": "~/Procedures/Sub-procedures"
-    },
-    {
       "name": "GiftCounter",
       "type": "overlay",
       "compiles": true,
@@ -605,6 +585,45 @@
         ]
       },
       "path": "~/Entities/General"
+    },
+    {
+      "name": "CollapseHandeler",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "collapse_handeler",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/minescape/procedures/CollapseHandelerProcedure.java"
+        ]
+      },
+      "path": "~/Procedures"
+    },
+    {
+      "name": "GiftCounterProc",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "gift_counter_proc",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/minescape/procedures/GiftCounterProcProcedure.java"
+        ]
+      },
+      "path": "~/Procedures/Sub-procedures"
     }
   ],
   "variable_elements": [
@@ -613,12 +632,6 @@
       "type": "number",
       "scope": "world",
       "value": "0"
-    },
-    {
-      "name": "GiftsCollectedSTR",
-      "type": "string",
-      "scope": "world",
-      "value": ""
     },
     {
       "name": "DoubleJumpAmount",
@@ -721,6 +734,18 @@
       "type": "number",
       "scope": "map",
       "value": "0"
+    },
+    {
+      "name": "GeneratedGifts",
+      "type": "number",
+      "scope": "map",
+      "value": "0"
+    },
+    {
+      "name": "GiftsSTR",
+      "type": "string",
+      "scope": "world",
+      "value": ""
     }
   ],
   "sound_elements": [
@@ -785,15 +810,35 @@
       "src/main/java/net/mcreator/minescape/init/MinescapeModItems.java",
       "src/main/java/net/mcreator/minescape/init/MinescapeModEntities.java",
       "src/main/java/net/mcreator/minescape/init/MinescapeModEntityRenderers.java",
+      "src/main/java/net/mcreator/minescape/ai/MoveToBlockGoal.java",
+      "src/main/java/net/mcreator/minescape/client/CameraShakeManager.java",
+      "src/main/java/net/mcreator/minescape/ai/MoveToStructureGoal.java",
+      "src/main/java/net/mcreator/minescape/client/renderer/CustomFireballRenderer.java",
+      "src/main/java/net/mcreator/minescape/init/MinescapeModTabs.java",
+      "src/main/java/net/mcreator/minescape/world/BlackHoleSavedData.java",
+      "src/main/java/net/mcreator/minescape/world/TeleportBlockHandler.java",
       "src/main/java/net/mcreator/minescape/init/MinescapeModSounds.java",
-      "src/main/resources/assets/minescape/sounds.json",
-      "src/main/resources/META-INF/neoforge.mods.toml",
+      "src/main/java/net/mcreator/minescape/ai/OrbitPositionGoal.java",
       "src/main/resources/pack.mcmeta",
       "src/main/java/net/mcreator/minescape/init/MinescapeModModels.java",
-      "src/main/java/net/mcreator/minescape/MinescapeMod.java",
+      "src/main/java/net/mcreator/minescape/network/CameraShakePayload.java",
       "src/main/java/net/mcreator/minescape/network/MinescapeModVariables.java",
       "src/main/java/net/mcreator/minescape/network/NbtArrayLists.java",
-      "src/main/java/net/mcreator/minescape/init/MinescapeModTabs.java"
+      "src/main/java/net/mcreator/minescape/entity/CustomEyeOfEnderEntity.java",
+      "src/main/resources/META-INF/neoforge.mods.toml",
+      "src/main/java/net/mcreator/minescape/world/BlockDamageHandler.java",
+      "src/main/java/net/mcreator/minescape/ai/OverrideMovementGoal.java",
+      "src/main/java/net/mcreator/minescape/math/CallCounter.java",
+      "src/main/java/net/mcreator/minescape/client/renderer/SemiAquaticRenderer.java",
+      "src/main/java/net/mcreator/minescape/client/renderer/CustomEyeOfEnderRenderer.java",
+      "src/main/java/net/mcreator/minescape/world/PortalSavedData.java",
+      "src/main/java/net/mcreator/minescape/client/CameraShakeClientEvents.java",
+      "src/main/resources/assets/minescape/sounds.json",
+      "src/main/java/net/mcreator/minescape/network/NetworkRegister.java",
+      "src/main/java/net/mcreator/minescape/entity/CustomFireballEntity.java",
+      "src/main/java/net/mcreator/minescape/MinescapeMod.java",
+      "src/main/java/net/mcreator/minescape/world/BlackHoleManager.java",
+      "src/main/java/net/mcreator/minescape/math/CallCooldownManager.java"
     ]
   },
   "foldersRoot": {

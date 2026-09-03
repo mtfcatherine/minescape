@@ -10,8 +10,8 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.client.Minecraft;
 
+import net.mcreator.minescape.procedures.GiftCounterProcProcedure;
 import net.mcreator.minescape.procedures.GetGoldCountProcedure;
-import net.mcreator.minescape.procedures.GetGiftCountProcedure;
 
 @EventBusSubscriber(Dist.CLIENT)
 public class GiftCounterOverlay {
@@ -33,7 +33,7 @@ public class GiftCounterOverlay {
 		if (true) {
 			event.getGuiGraphics().text(Minecraft.getInstance().font,
 
-					GetGiftCountProcedure.execute(world), w - 365, h - 16, -6750055, true);
+					GiftCounterProcProcedure.execute(world), w - 365, h - 16, -6750055, true);
 			event.getGuiGraphics().text(Minecraft.getInstance().font,
 
 					GetGoldCountProcedure.execute(world), w - 365, h - 32, -256, true);

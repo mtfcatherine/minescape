@@ -10,7 +10,7 @@
           "name": "label_proc_get_gift_count",
           "text": {
             "fixedValue": "",
-            "name": "GetGiftCount"
+            "name": "GiftCounterProc"
           },
           "color": {
             "value": -6750055,
