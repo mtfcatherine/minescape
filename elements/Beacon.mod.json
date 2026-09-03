@@ -16,15 +16,15 @@
       "fixedValue": false
     },
     "visualScale": {
-      "fixedValue": 1.0
+      "fixedValue": 1.5
     },
     "boundingBoxScale": {
-      "fixedValue": 1.0
+      "fixedValue": 2.0
     },
     "modelLayers": [],
     "animations": [],
-    "modelWidth": 0.6,
-    "modelHeight": 1.8,
+    "modelWidth": 1.625,
+    "modelHeight": 5.0625,
     "modelShadowSize": 0.5,
     "mountedYOffset": 0.0,
     "hasSpawnEgg": true,

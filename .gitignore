@@ -21,3 +21,9 @@ Thumbs.db
 .mcreator/workspaceBackups/
 .mcreator/modElementThumbnails/
 .mcreator/userSettings
+
+# eclipse junk
+bin/
+.settings/
+.classpath
+.project

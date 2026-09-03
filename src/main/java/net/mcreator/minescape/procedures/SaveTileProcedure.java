@@ -37,12 +37,12 @@ public class SaveTileProcedure {
 		Vec3 origin = Vec3.ZERO;
 		Vec3 mid = Vec3.ZERO;
 		Vec3 offset = Vec3.ZERO;
+		Entity marker = null;
 		Vec3 frontOff = Vec3.ZERO;
 		Vec3 backOff = Vec3.ZERO;
 		boolean frontOK = false;
 		boolean backOK = false;
 		double tidx = 0;
-		Entity marker = null;
 		id = StringArgumentType.getString(arguments, "id");
 		sizeZ = DoubleArgumentType.getDouble(arguments, "sizeZ");
 		sizeX = DoubleArgumentType.getDouble(arguments, "sizeX");
@@ -131,7 +131,8 @@ public class SaveTileProcedure {
 				MinescapeModVariables.WorldVariables.get(world).TileIds.add(id);
 				MinescapeModVariables.WorldVariables.get(world).markSyncDirty();
 				MinescapeModVariables.WorldVariables.get(world).TileWeights.add(weight);
-				MinescapeModVariables.WorldVariables.get(world).TileSizes.add(new Vec3(sizeX, sizeY, sizeZ));
+				MinescapeModVariables.WorldVariables.get(world).markSyncDirty();
+				MinescapeModVariables.WorldVariables.get(world).TileSizes.add((new Vec3(sizeX, sizeY, sizeZ)));
 				MinescapeModVariables.WorldVariables.get(world).markSyncDirty();
 				MinescapeModVariables.WorldVariables.get(world).TileFronts.add("none");
 				MinescapeModVariables.WorldVariables.get(world).markSyncDirty();
@@ -142,7 +143,7 @@ public class SaveTileProcedure {
 				tidx = MinescapeModVariables.WorldVariables.get(world).TileIds.indexOf(id);
 				MinescapeModVariables.WorldVariables.get(world).TileWeights.set((int) tidx, weight);
 				MinescapeModVariables.WorldVariables.get(world).markSyncDirty();
-				MinescapeModVariables.WorldVariables.get(world).TileSizes.set((int) tidx, new Vec3(sizeX, sizeY, sizeZ));
+				MinescapeModVariables.WorldVariables.get(world).TileSizes.set((int) tidx, (new Vec3(sizeX, sizeY, sizeZ)));
 				MinescapeModVariables.WorldVariables.get(world).markSyncDirty();
 			}
 			if (frontOK) {
@@ -154,7 +155,8 @@ public class SaveTileProcedure {
 				MinescapeModVariables.WorldVariables.get(world).markSyncDirty();
 			}
 			if (world instanceof ServerLevel _level) {
-				_level.getServer().getPlayerList().broadcastSystemMessage(Component.literal(("tile '" + id + "' registered (" + new java.text.DecimalFormat("0").format(MinescapeModVariables.WorldVariables.get(world).TileIds.size()) + " tiles total)")).withColor(0x009900), false);
+				_level.getServer().getPlayerList().broadcastSystemMessage(
+						Component.literal(("tile '" + id + "' registered (" + new java.text.DecimalFormat("0").format(MinescapeModVariables.WorldVariables.get(world).TileIds.size()) + " tiles total)")).withColor(0x009900), false);
 			}
 		}
 	}

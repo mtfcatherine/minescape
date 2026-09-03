@@ -1,0 +1,29 @@
+{
+  "collect": {
+    "subtitle": "subtitles.collect",
+    "sounds": [
+      {
+        "name": "minescape:giftcollect",
+        "stream": false
+      }
+    ]
+  },
+  "goldcollect": {
+    "subtitle": "subtitles.goldcollect",
+    "sounds": [
+      {
+        "name": "minescape:goldgiftcollect",
+        "stream": false
+      }
+    ]
+  },
+  "beaconenter": {
+    "subtitle": "subtitles.beaconenter",
+    "sounds": [
+      {
+        "name": "minescape:beaconenter",
+        "stream": false
+      }
+    ]
+  }
+}

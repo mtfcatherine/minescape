@@ -8,6 +8,8 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.mcreator.minescape.entity.BeaconEntity;
 import net.mcreator.minescape.client.model.Modelbeacon;
 
+import com.mojang.blaze3d.vertex.PoseStack;
+
 public class BeaconRenderer extends MobRenderer<BeaconEntity, LivingEntityRenderState, Modelbeacon> {
 	private final Identifier entityTexture = Identifier.parse("minescape:textures/entities/beacon_.png");
 
@@ -28,5 +30,10 @@ public class BeaconRenderer extends MobRenderer<BeaconEntity, LivingEntityRender
 	@Override
 	public Identifier getTextureLocation(LivingEntityRenderState state) {
 		return entityTexture;
+	}
+
+	@Override
+	protected void scale(LivingEntityRenderState state, PoseStack poseStack) {
+		poseStack.scale(1.5f, 1.5f, 1.5f);
 	}
 }

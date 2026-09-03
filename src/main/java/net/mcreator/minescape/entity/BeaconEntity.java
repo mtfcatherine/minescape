@@ -16,11 +16,7 @@ import net.minecraft.world.entity.ai.navigation.FlyingPathNavigation;
 import net.minecraft.world.entity.ai.control.FlyingMoveControl;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
-import net.minecraft.world.entity.SpawnPlacementTypes;
-import net.minecraft.world.entity.Mob;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.AreaEffectCloud;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.sounds.SoundEvent;
@@ -39,6 +35,7 @@ public class BeaconEntity extends Monster {
 		setNoAi(true);
 		setPersistenceRequired();
 		this.moveControl = new FlyingMoveControl(this, 10, true);
+		refreshDimensions();
 	}
 
 	@Override
@@ -116,6 +113,11 @@ public class BeaconEntity extends Monster {
 		Level world = this.level();
 		Entity entity = this;
 		return false;
+	}
+
+	@Override
+	public EntityDimensions getDefaultDimensions(Pose pose) {
+		return super.getDefaultDimensions(pose).scale(2f);
 	}
 
 	@Override

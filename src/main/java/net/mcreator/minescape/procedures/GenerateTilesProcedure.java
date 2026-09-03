@@ -8,16 +8,15 @@ import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.Mth;
-import net.minecraft.core.BlockPos;
 import net.minecraft.server.permissions.LevelBasedPermissionSet;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.network.chat.Component;
+import net.minecraft.core.BlockPos;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.CommandSource;
 
 import net.mcreator.minescape.network.MinescapeModVariables;
 import net.mcreator.minescape.init.MinescapeModEntities;
-import net.mcreator.minescape.entity.NullGiftEntity;
 import net.mcreator.minescape.entity.NodeGiftEntity;
 
 import java.util.Comparator;
@@ -90,9 +89,9 @@ public class GenerateTilesProcedure {
 						if (world instanceof ServerLevel _level) {
 							_level.getServer().getPlayerList().broadcastSystemMessage(Component.literal(("placed tile '" + tileId + "'")).withColor(0x44cc44), false);
 						}
-						sizeV = MinescapeModVariables.WorldVariables.get(world).TileSizes.get((int) idx) instanceof Vec3 _vector7 ? _vector7 : Vec3.ZERO;
+						sizeV = MinescapeModVariables.WorldVariables.get(world).TileSizes.get((int) idx) instanceof Vec3 _vector18 ? _vector18 : Vec3.ZERO;
 						{
-							final Vec3 _center = new Vec3(ox + sizeV.x() / 2, oy + sizeV.y() / 2, oz + sizeV.z() / 2);
+							final Vec3 _center = new Vec3((ox + sizeV.x() / 2), (oy + sizeV.y() / 2), (oz + sizeV.z() / 2));
 							for (Entity entityiterator : world.getEntitiesOfClass(Entity.class, new AABB(_center, _center).inflate((sizeV.x() + sizeV.z()) / 2d), e -> true).stream()
 									.sorted(Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_center))).toList()) {
 								if (entityiterator instanceof NodeGiftEntity) {
@@ -102,17 +101,15 @@ public class GenerateTilesProcedure {
 											entityToSpawn.setYRot(world.getRandom().nextFloat() * 360F);
 										}
 									}
-									{
-										MinescapeModVariables.WorldVariables.get(world).NodeGiftPositions.add(new Vec3(entityiterator.getX(), entityiterator.getY(), entityiterator.getZ()));
-										MinescapeModVariables.WorldVariables.get(world).markSyncDirty();
-									}
+									MinescapeModVariables.WorldVariables.get(world).NodeGiftPositions.add((new Vec3((entityiterator.getX()), (entityiterator.getY()), (entityiterator.getZ()))));
+									MinescapeModVariables.WorldVariables.get(world).markSyncDirty();
 									if (!entityiterator.level().isClientSide())
 										entityiterator.discard();
 								}
 							}
 						}
 						if (MinescapeModVariables.WorldVariables.get(world).TileFronts.get((int) idx) instanceof Vec3) {
-							frontOff = MinescapeModVariables.WorldVariables.get(world).TileFronts.get((int) idx) instanceof Vec3 _vector19 ? _vector19 : Vec3.ZERO;
+							frontOff = MinescapeModVariables.WorldVariables.get(world).TileFronts.get((int) idx) instanceof Vec3 _vector37 ? _vector37 : Vec3.ZERO;
 							cursorX = ox + frontOff.x();
 							cursorY = oy + frontOff.y();
 							cursorZ = oz + frontOff.z();
