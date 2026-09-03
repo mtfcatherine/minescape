@@ -1,8 +1,0 @@
-# Made in Blockbench 5.1.6
-newmtl m_a19a1d64-f84c-e708-42aa-4105058454cf
-map_Kd textureShaft.png
-newmtl m_2bc890e6-1b41-bb16-0a04-af65427789e3
-map_Kd textureBase.png
-newmtl m_d6ffd385-2272-dd4f-1fdb-04c4f99b3f24
-map_Kd textureTop.png
-newmtl none

@@ -16,5 +16,14 @@
         "stream": false
       }
     ]
+  },
+  "beaconenter": {
+    "subtitle": "subtitles.beaconenter",
+    "sounds": [
+      {
+        "name": "minescape:beaconenter",
+        "stream": false
+      }
+    ]
   }
 }

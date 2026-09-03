@@ -51,6 +51,10 @@ public class MinescapeModEntities {
 			EntityType.Builder.<NodeRightEntity>of(NodeRightEntity::new, MobCategory.AMBIENT).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).fireImmune()
 
 					.notInPeaceful().sized(0.2f, 0.2f));
+	public static final DeferredHolder<EntityType<?>, EntityType<BeaconEntity>> BEACON = register("beacon",
+			EntityType.Builder.<BeaconEntity>of(BeaconEntity::new, MobCategory.AMBIENT).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).fireImmune()
+
+					.notInPeaceful().sized(0.6f, 1.8f));
 
 	// Start of user code block custom entities
 	// End of user code block custom entities
@@ -67,6 +71,7 @@ public class MinescapeModEntities {
 		NodeBackEntity.init(event);
 		NodeLeftEntity.init(event);
 		NodeRightEntity.init(event);
+		BeaconEntity.init(event);
 	}
 
 	@SubscribeEvent
@@ -78,5 +83,6 @@ public class MinescapeModEntities {
 		event.put(NODE_BACK.get(), NodeBackEntity.createAttributes().build());
 		event.put(NODE_LEFT.get(), NodeLeftEntity.createAttributes().build());
 		event.put(NODE_RIGHT.get(), NodeRightEntity.createAttributes().build());
+		event.put(BEACON.get(), BeaconEntity.createAttributes().build());
 	}
 }

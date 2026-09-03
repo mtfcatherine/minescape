@@ -21,5 +21,6 @@ public class MinescapeModEntityRenderers {
 		event.registerEntityRenderer(MinescapeModEntities.NODE_BACK.get(), NodeBackRenderer::new);
 		event.registerEntityRenderer(MinescapeModEntities.NODE_LEFT.get(), NodeLeftRenderer::new);
 		event.registerEntityRenderer(MinescapeModEntities.NODE_RIGHT.get(), NodeRightRenderer::new);
+		event.registerEntityRenderer(MinescapeModEntities.BEACON.get(), BeaconRenderer::new);
 	}
 }

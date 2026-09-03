@@ -12,6 +12,8 @@ public class ClearTilesProcedure {
 		MinescapeModVariables.WorldVariables.get(world).TileWeights.clear();
 		MinescapeModVariables.WorldVariables.get(world).TileFronts.clear();
 		MinescapeModVariables.WorldVariables.get(world).TileBacks.clear();
+		MinescapeModVariables.WorldVariables.get(world).TileSizes.clear();
+		MinescapeModVariables.WorldVariables.get(world).NodeGiftPositions.clear();
 		MinescapeModVariables.WorldVariables.get(world).markSyncDirty();
 		if (world instanceof ServerLevel _level) {
 			_level.getServer().getPlayerList().broadcastSystemMessage(Component.literal("tile registry cleared").withColor(0x009900), false);

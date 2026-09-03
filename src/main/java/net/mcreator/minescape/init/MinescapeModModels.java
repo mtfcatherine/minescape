@@ -16,6 +16,7 @@ public class MinescapeModModels {
 	public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
 		event.registerLayerDefinition(ModelNodeStart.LAYER_LOCATION, ModelNodeStart::createBodyLayer);
 		event.registerLayerDefinition(Modelgift.LAYER_LOCATION, Modelgift::createBodyLayer);
+		event.registerLayerDefinition(Modelbeacon.LAYER_LOCATION, Modelbeacon::createBodyLayer);
 		event.registerLayerDefinition(ModelNodeEnd.LAYER_LOCATION, ModelNodeEnd::createBodyLayer);
 		event.registerLayerDefinition(ModelNodeLeft.LAYER_LOCATION, ModelNodeLeft::createBodyLayer);
 		event.registerLayerDefinition(ModelNodeRight.LAYER_LOCATION, ModelNodeRight::createBodyLayer);

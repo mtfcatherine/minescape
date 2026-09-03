@@ -486,8 +486,8 @@
         ],
         "dependencies": [
           {
-            "name": "world",
-            "type": "world"
+            "name": "arguments",
+            "type": "cmdcontext"
           },
           {
             "name": "x",
@@ -502,8 +502,8 @@
             "type": "number"
           },
           {
-            "name": "arguments",
-            "type": "cmdcontext"
+            "name": "world",
+            "type": "world"
           }
         ]
       },
@@ -553,6 +553,58 @@
         ]
       },
       "path": "~/Commands"
+    },
+    {
+      "name": "OnBeacon",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "on_beacon",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/minescape/procedures/OnBeaconProcedure.java"
+        ]
+      },
+      "path": "~/Procedures/Sub-procedures"
+    },
+    {
+      "name": "Beacon",
+      "type": "livingentity",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "beacon",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/minescape/models/item/beacon_spawn_egg.json",
+          "src/main/resources/assets/minescape/items/beacon_spawn_egg.json",
+          "src/main/java/net/mcreator/minescape/client/renderer/BeaconRenderer.java",
+          "src/main/resources/data/minescape/neoforge/biome_modifier/beacon_biome_modifier.json",
+          "src/main/java/net/mcreator/minescape/entity/BeaconEntity.java"
+        ]
+      },
+      "path": "~/Entities/General"
     }
   ],
   "variable_elements": [
@@ -590,31 +642,37 @@
       "name": "NodeGiftPositions",
       "type": "arraylist",
       "scope": "world",
-      "value": "new ArrayList<>()"
+      "value": "new ArrayList\u003c\u003e()"
     },
     {
       "name": "TileIds",
       "type": "arraylist",
       "scope": "world",
-      "value": "new ArrayList<>()"
+      "value": "new ArrayList\u003c\u003e()"
     },
     {
       "name": "TileWeights",
       "type": "arraylist",
       "scope": "world",
-      "value": "new ArrayList<>()"
+      "value": "new ArrayList\u003c\u003e()"
     },
     {
       "name": "TileFronts",
       "type": "arraylist",
       "scope": "world",
-      "value": "new ArrayList<>()"
+      "value": "new ArrayList\u003c\u003e()"
     },
     {
       "name": "TileBacks",
       "type": "arraylist",
       "scope": "world",
-      "value": "new ArrayList<>()"
+      "value": "new ArrayList\u003c\u003e()"
+    },
+    {
+      "name": "TileSizes",
+      "type": "arraylist",
+      "scope": "world",
+      "value": "new ArrayList\u003c\u003e()"
     },
     {
       "name": "GoldGifts",
@@ -645,6 +703,24 @@
       "type": "vector",
       "scope": "world",
       "value": "Vec3.ZERO"
+    },
+    {
+      "name": "playersBeaconed",
+      "type": "number",
+      "scope": "world",
+      "value": "0"
+    },
+    {
+      "name": "playersAlive",
+      "type": "number",
+      "scope": "world",
+      "value": "0"
+    },
+    {
+      "name": "playersDead",
+      "type": "number",
+      "scope": "map",
+      "value": "0"
     }
   ],
   "sound_elements": [
@@ -663,6 +739,14 @@
       ],
       "category": "master",
       "subtitle": "Gold Gift Collected"
+    },
+    {
+      "name": "beaconenter",
+      "files": [
+        "beaconenter"
+      ],
+      "category": "player",
+      "subtitle": "Player Beaconed"
     }
   ],
   "tag_elements": {},
@@ -687,7 +771,10 @@
       "entity.minescape.node_left": "Node Left",
       "entity.minescape.node_right": "Node Right",
       "item.minescape.node_right_spawn_egg": "Node Right Spawn Egg",
-      "item.minescape.tile_wand": "Tile Wand"
+      "item.minescape.tile_wand": "Tile Wand",
+      "subtitles.beaconenter": "Player Beaconed",
+      "entity.minescape.beacon": "Beacon",
+      "item.minescape.beacon_spawn_egg": "Beacon Spawn Egg"
     }
   },
   "metadata": {
@@ -721,6 +808,10 @@
           },
           {
             "name": "Nodes",
+            "children": []
+          },
+          {
+            "name": "General",
             "children": []
           }
         ]

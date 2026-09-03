@@ -28,6 +28,7 @@ public class MinescapeModItems {
 	public static final DeferredItem<Item> NODE_LEFT_SPAWN_EGG;
 	public static final DeferredItem<Item> NODE_RIGHT_SPAWN_EGG;
 	public static final DeferredItem<Item> TILE_WAND;
+	public static final DeferredItem<Item> BEACON_SPAWN_EGG;
 	static {
 		NULL_GIFT_SPAWN_EGG = register("null_gift_spawn_egg", properties -> new SpawnEggItem(properties.spawnEgg(MinescapeModEntities.NULL_GIFT.get())));
 		NODE_GIFT_SPAWN_EGG = register("node_gift_spawn_egg", properties -> new SpawnEggItem(properties.spawnEgg(MinescapeModEntities.NODE_GIFT.get())));
@@ -38,6 +39,7 @@ public class MinescapeModItems {
 		NODE_LEFT_SPAWN_EGG = register("node_left_spawn_egg", properties -> new SpawnEggItem(properties.spawnEgg(MinescapeModEntities.NODE_LEFT.get())));
 		NODE_RIGHT_SPAWN_EGG = register("node_right_spawn_egg", properties -> new SpawnEggItem(properties.spawnEgg(MinescapeModEntities.NODE_RIGHT.get())));
 		TILE_WAND = register("tile_wand", TileWandItem::new);
+		BEACON_SPAWN_EGG = register("beacon_spawn_egg", properties -> new SpawnEggItem(properties.spawnEgg(MinescapeModEntities.BEACON.get())));
 	}
 
 	// Start of user code block custom items

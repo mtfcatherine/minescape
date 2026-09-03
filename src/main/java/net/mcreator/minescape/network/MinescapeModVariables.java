@@ -141,11 +141,14 @@ public class MinescapeModVariables {
 		public ArrayList<Object> TileWeights = new ArrayList<>();
 		public ArrayList<Object> TileFronts = new ArrayList<>();
 		public ArrayList<Object> TileBacks = new ArrayList<>();
+		public ArrayList<Object> TileSizes = new ArrayList<>();
 		public double GoldGifts = 0;
 		public double GoldGiftMultiplier = 1.0;
 		public String GoldGiftsSTR = "";
 		public Vec3 TilePos1 = Vec3.ZERO;
 		public Vec3 TilePos2 = Vec3.ZERO;
+		public double playersBeaconed = 0;
+		public double playersAlive = 0;
 
 		public void read(CompoundTag nbt, HolderLookup.Provider lookupProvider) {
 			GiftsCollected = nbt.getDoubleOr("GiftsCollected", 0);
@@ -155,11 +158,14 @@ public class MinescapeModVariables {
 			TileWeights = NbtArrayLists.loadGlobalWorld(nbt.getListOrEmpty("TileWeights"), lookupProvider);
 			TileFronts = NbtArrayLists.loadGlobalWorld(nbt.getListOrEmpty("TileFronts"), lookupProvider);
 			TileBacks = NbtArrayLists.loadGlobalWorld(nbt.getListOrEmpty("TileBacks"), lookupProvider);
+			TileSizes = NbtArrayLists.loadGlobalWorld(nbt.getListOrEmpty("TileSizes"), lookupProvider);
 			GoldGifts = nbt.getDoubleOr("GoldGifts", 0);
 			GoldGiftMultiplier = nbt.getDoubleOr("GoldGiftMultiplier", 0);
 			GoldGiftsSTR = nbt.getStringOr("GoldGiftsSTR", "");
 			TilePos1 = Vec3.CODEC.parse(NbtOps.INSTANCE, nbt.get("TilePos1")).result().orElse(Vec3.ZERO);
 			TilePos2 = Vec3.CODEC.parse(NbtOps.INSTANCE, nbt.get("TilePos2")).result().orElse(Vec3.ZERO);
+			playersBeaconed = nbt.getDoubleOr("playersBeaconed", 0);
+			playersAlive = nbt.getDoubleOr("playersAlive", 0);
 		}
 
 		public CompoundTag save(CompoundTag nbt, HolderLookup.Provider lookupProvider) {
@@ -170,11 +176,14 @@ public class MinescapeModVariables {
 			nbt.put("TileWeights", NbtArrayLists.saveGlobalWorld(TileWeights));
 			nbt.put("TileFronts", NbtArrayLists.saveGlobalWorld(TileFronts));
 			nbt.put("TileBacks", NbtArrayLists.saveGlobalWorld(TileBacks));
+			nbt.put("TileSizes", NbtArrayLists.saveGlobalWorld(TileSizes));
 			nbt.putDouble("GoldGifts", GoldGifts);
 			nbt.putDouble("GoldGiftMultiplier", GoldGiftMultiplier);
 			nbt.putString("GoldGiftsSTR", GoldGiftsSTR);
 			nbt.put("TilePos1", Vec3.CODEC.encodeStart(NbtOps.INSTANCE, TilePos1).result().orElseGet(CompoundTag::new));
 			nbt.put("TilePos2", Vec3.CODEC.encodeStart(NbtOps.INSTANCE, TilePos2).result().orElseGet(CompoundTag::new));
+			nbt.putDouble("playersBeaconed", playersBeaconed);
+			nbt.putDouble("playersAlive", playersAlive);
 			return nbt;
 		}
 
@@ -201,11 +210,14 @@ public class MinescapeModVariables {
 			return instance;
 		}, instance -> instance.save(new CompoundTag(), level.registryAccess())));
 		boolean _syncDirty = false;
+		public double playersDead = 0;
 
 		public void read(CompoundTag nbt, HolderLookup.Provider lookupProvider) {
+			playersDead = nbt.getDoubleOr("playersDead", 0);
 		}
 
 		public CompoundTag save(CompoundTag nbt, HolderLookup.Provider lookupProvider) {
+			nbt.putDouble("playersDead", playersDead);
 			return nbt;
 		}
 

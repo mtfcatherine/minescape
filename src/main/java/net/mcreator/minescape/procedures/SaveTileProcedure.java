@@ -131,6 +131,7 @@ public class SaveTileProcedure {
 				MinescapeModVariables.WorldVariables.get(world).TileIds.add(id);
 				MinescapeModVariables.WorldVariables.get(world).markSyncDirty();
 				MinescapeModVariables.WorldVariables.get(world).TileWeights.add(weight);
+				MinescapeModVariables.WorldVariables.get(world).TileSizes.add(new Vec3(sizeX, sizeY, sizeZ));
 				MinescapeModVariables.WorldVariables.get(world).markSyncDirty();
 				MinescapeModVariables.WorldVariables.get(world).TileFronts.add("none");
 				MinescapeModVariables.WorldVariables.get(world).markSyncDirty();
@@ -140,6 +141,8 @@ public class SaveTileProcedure {
 			} else {
 				tidx = MinescapeModVariables.WorldVariables.get(world).TileIds.indexOf(id);
 				MinescapeModVariables.WorldVariables.get(world).TileWeights.set((int) tidx, weight);
+				MinescapeModVariables.WorldVariables.get(world).markSyncDirty();
+				MinescapeModVariables.WorldVariables.get(world).TileSizes.set((int) tidx, new Vec3(sizeX, sizeY, sizeZ));
 				MinescapeModVariables.WorldVariables.get(world).markSyncDirty();
 			}
 			if (frontOK) {

@@ -17,5 +17,8 @@
   "entity.minescape.node_left": "Node Left",
   "entity.minescape.node_right": "Node Right",
   "item.minescape.node_right_spawn_egg": "Node Right Spawn Egg",
-  "item.minescape.tile_wand": "Tile Wand"
+  "item.minescape.tile_wand": "Tile Wand",
+  "subtitles.beaconenter": "Player Beaconed",
+  "entity.minescape.beacon": "Beacon",
+  "item.minescape.beacon_spawn_egg": "Beacon Spawn Egg"
 }

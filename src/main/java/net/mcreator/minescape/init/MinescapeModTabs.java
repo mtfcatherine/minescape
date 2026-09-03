@@ -28,6 +28,7 @@ public class MinescapeModTabs {
 			tabData.accept(MinescapeModItems.NODE_BACK_SPAWN_EGG.get());
 			tabData.accept(MinescapeModItems.NODE_LEFT_SPAWN_EGG.get());
 			tabData.accept(MinescapeModItems.NODE_RIGHT_SPAWN_EGG.get());
+			tabData.accept(MinescapeModItems.BEACON_SPAWN_EGG.get());
 		} else if (tabData.getTabKey() == CreativeModeTabs.OP_BLOCKS) {
 			if (tabData.hasPermissions()) {
 				tabData.accept(MinescapeModItems.TILE_WAND.get());
