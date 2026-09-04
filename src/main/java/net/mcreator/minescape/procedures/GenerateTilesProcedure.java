@@ -48,6 +48,9 @@ public class GenerateTilesProcedure {
 		cursorY = Math.floor(y);
 		cursorZ = Math.floor(z);
 		if (MinescapeModVariables.WorldVariables.get(world).TileIds.isEmpty()) {
+			TilesDefaultsProcedure.execute(world);
+		}
+		if (MinescapeModVariables.WorldVariables.get(world).TileIds.isEmpty()) {
 			if (world instanceof ServerLevel _level) {
 				_level.getServer().getPlayerList().broadcastSystemMessage(Component.literal("no tiles saved - use /save_tile first").withColor(0xff3333), false);
 			}

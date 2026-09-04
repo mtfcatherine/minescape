@@ -624,6 +624,38 @@
         ]
       },
       "path": "~/Procedures/Sub-procedures"
+    },
+    {
+      "name": "TilesDefaults",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tilesdefaults",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/minescape/procedures/TilesDefaultsProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Procedures"
+    },
+    {
+      "name": "TilesDefaultsCmd",
+      "type": "command",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tilesdefaultscmd",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/minescape/command/TilesDefaultsCmdCommand.java"
+        ]
+      },
+      "path": "~/Commands"
     }
   ],
   "variable_elements": [
@@ -655,37 +687,37 @@
       "name": "NodeGiftPositions",
       "type": "arraylist",
       "scope": "world",
-      "value": "new ArrayList\u003c\u003e()"
+      "value": "new ArrayList<>()"
     },
     {
       "name": "TileIds",
       "type": "arraylist",
       "scope": "world",
-      "value": "new ArrayList\u003c\u003e()"
+      "value": "new ArrayList<>()"
     },
     {
       "name": "TileWeights",
       "type": "arraylist",
       "scope": "world",
-      "value": "new ArrayList\u003c\u003e()"
+      "value": "new ArrayList<>()"
     },
     {
       "name": "TileFronts",
       "type": "arraylist",
       "scope": "world",
-      "value": "new ArrayList\u003c\u003e()"
+      "value": "new ArrayList<>()"
     },
     {
       "name": "TileBacks",
       "type": "arraylist",
       "scope": "world",
-      "value": "new ArrayList\u003c\u003e()"
+      "value": "new ArrayList<>()"
     },
     {
       "name": "TileSizes",
       "type": "arraylist",
       "scope": "world",
-      "value": "new ArrayList\u003c\u003e()"
+      "value": "new ArrayList<>()"
     },
     {
       "name": "GoldGifts",
