@@ -17,4 +17,6 @@ public class MinescapeModSounds {
 	public static final DeferredHolder<SoundEvent, SoundEvent> COLLECT = REGISTRY.register("collect", () -> SoundEvent.createVariableRangeEvent(Identifier.fromNamespaceAndPath("minescape", "collect")));
 	public static final DeferredHolder<SoundEvent, SoundEvent> GOLDCOLLECT = REGISTRY.register("goldcollect", () -> SoundEvent.createVariableRangeEvent(Identifier.fromNamespaceAndPath("minescape", "goldcollect")));
 	public static final DeferredHolder<SoundEvent, SoundEvent> BEACONENTER = REGISTRY.register("beaconenter", () -> SoundEvent.createVariableRangeEvent(Identifier.fromNamespaceAndPath("minescape", "beaconenter")));
+	public static final DeferredHolder<SoundEvent, SoundEvent> BEACONAMBIENCE = REGISTRY.register("beaconambience", () -> SoundEvent.createVariableRangeEvent(Identifier.fromNamespaceAndPath("minescape", "beaconambience")));
+	public static final DeferredHolder<SoundEvent, SoundEvent> BEACONSPAWN = REGISTRY.register("beaconspawn", () -> SoundEvent.createVariableRangeEvent(Identifier.fromNamespaceAndPath("minescape", "beaconspawn")));
 }

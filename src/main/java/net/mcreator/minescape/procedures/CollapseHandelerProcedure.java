@@ -14,6 +14,18 @@ public class CollapseHandelerProcedure {
 	public static void execute(LevelAccessor world) {
 		double i = 0;
 		for (Object arraylistiterator : MinescapeModVariables.WorldVariables.get(world).NodeGiftPositions) {
+			if (world instanceof ServerLevel _level) {
+				Entity entityToSpawn = MinescapeModEntities.GOLD_GIFT.get().spawn(_level,
+						BlockPos.containing((MinescapeModVariables.WorldVariables.get(world).NodeGiftPositions.get((int) i) instanceof Vec3 _vector2 ? _vector2 : Vec3.ZERO).x(),
+								(MinescapeModVariables.WorldVariables.get(world).NodeGiftPositions.get((int) i) instanceof Vec3 _vector4 ? _vector4 : Vec3.ZERO).y(),
+								(MinescapeModVariables.WorldVariables.get(world).NodeGiftPositions.get((int) i) instanceof Vec3 _vector6 ? _vector6 : Vec3.ZERO).z()),
+						EntitySpawnReason.MOB_SUMMONED);
+				if (entityToSpawn != null) {
+					entityToSpawn.setYRot(world.getRandom().nextFloat() * 360F);
+				}
+			}
+			MinescapeModVariables.WorldVariables.get(world).GiftsCollected = 0;
+			MinescapeModVariables.WorldVariables.get(world).markSyncDirty();
 			i = new Object() {
 				public double change(Object _obj) {
 					if (_obj instanceof Integer _i)
@@ -29,24 +41,6 @@ public class CollapseHandelerProcedure {
 					return 0;
 				}
 			}.change(i);
-			MinescapeModVariables.WorldVariables.get(world).GiftsCollected = 0;
-			MinescapeModVariables.WorldVariables.get(world).markSyncDirty();
-			if (world instanceof ServerLevel _level) {
-				Entity entityToSpawn = MinescapeModEntities.BEACON.get().spawn(_level, new BlockPos(0, 0, 0), EntitySpawnReason.MOB_SUMMONED);
-				if (entityToSpawn != null) {
-					entityToSpawn.setYRot(world.getRandom().nextFloat() * 360F);
-				}
-			}
-			if (world instanceof ServerLevel _level) {
-				Entity entityToSpawn = MinescapeModEntities.GOLD_GIFT.get().spawn(_level,
-						BlockPos.containing((MinescapeModVariables.WorldVariables.get(world).NodeGiftPositions.get((int) i) instanceof Vec3 _vector2 ? _vector2 : Vec3.ZERO).x(),
-								(MinescapeModVariables.WorldVariables.get(world).NodeGiftPositions.get((int) i) instanceof Vec3 _vector4 ? _vector4 : Vec3.ZERO).y(),
-								(MinescapeModVariables.WorldVariables.get(world).NodeGiftPositions.get((int) i) instanceof Vec3 _vector6 ? _vector6 : Vec3.ZERO).z()),
-						EntitySpawnReason.MOB_SUMMONED);
-				if (entityToSpawn != null) {
-					entityToSpawn.setYRot(world.getRandom().nextFloat() * 360F);
-				}
-			}
 		}
 	}
 }

@@ -772,6 +772,22 @@
       ],
       "category": "player",
       "subtitle": "Player Beaconed"
+    },
+    {
+      "name": "beaconambience",
+      "files": [
+        "beaconambience"
+      ],
+      "category": "ambient",
+      "subtitle": "Beacon hums nearby"
+    },
+    {
+      "name": "beaconspawn",
+      "files": [
+        "beaconspawn"
+      ],
+      "category": "block",
+      "subtitle": "Beacon spawned"
     }
   ],
   "tag_elements": {},
@@ -799,7 +815,9 @@
       "item.minescape.tile_wand": "Tile Wand",
       "subtitles.beaconenter": "Player Beaconed",
       "entity.minescape.beacon": "Beacon",
-      "item.minescape.beacon_spawn_egg": "Beacon Spawn Egg"
+      "item.minescape.beacon_spawn_egg": "Beacon Spawn Egg",
+      "subtitles.beaconambience": "Beacon hums nearby",
+      "subtitles.beaconspawn": "Beacon spawned"
     }
   },
   "metadata": {

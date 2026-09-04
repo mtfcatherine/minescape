@@ -25,5 +25,23 @@
         "stream": false
       }
     ]
+  },
+  "beaconambience": {
+    "subtitle": "subtitles.beaconambience",
+    "sounds": [
+      {
+        "name": "minescape:beaconambience",
+        "stream": false
+      }
+    ]
+  },
+  "beaconspawn": {
+    "subtitle": "subtitles.beaconspawn",
+    "sounds": [
+      {
+        "name": "minescape:beaconspawn",
+        "stream": false
+      }
+    ]
   }
 }

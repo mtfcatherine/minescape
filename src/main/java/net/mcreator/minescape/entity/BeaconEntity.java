@@ -49,6 +49,11 @@ public class BeaconEntity extends Monster {
 	}
 
 	@Override
+	public SoundEvent getAmbientSound() {
+		return BuiltInRegistries.SOUND_EVENT.getValue(Identifier.parse("minescape:beaconambience"));
+	}
+
+	@Override
 	public SoundEvent getHurtSound(DamageSource ds) {
 		return BuiltInRegistries.SOUND_EVENT.getValue(Identifier.parse("entity.generic.hurt"));
 	}
