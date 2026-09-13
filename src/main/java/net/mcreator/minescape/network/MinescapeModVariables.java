@@ -141,6 +141,12 @@ public class MinescapeModVariables {
 		public ArrayList<Object> TileFronts = new ArrayList<>();
 		public ArrayList<Object> TileBacks = new ArrayList<>();
 		public ArrayList<Object> TileSizes = new ArrayList<>();
+		public ArrayList<Object> TileLefts = new ArrayList<>();
+		public ArrayList<Object> TileRights = new ArrayList<>();
+		public ArrayList<Object> TileFacingF = new ArrayList<>();
+		public ArrayList<Object> TileFacingB = new ArrayList<>();
+		public ArrayList<Object> TileFacingL = new ArrayList<>();
+		public ArrayList<Object> TileFacingR = new ArrayList<>();
 		public double GoldGifts = 0;
 		public double GoldGiftMultiplier = 1.0;
 		public String GoldGiftsSTR = "";
@@ -149,6 +155,17 @@ public class MinescapeModVariables {
 		public double playersBeaconed = 0;
 		public double playersAlive = 0;
 		public String GiftsSTR = "";
+		public ArrayList<Object> PTDef = new ArrayList<>();
+		public ArrayList<Object> PTOx = new ArrayList<>();
+		public ArrayList<Object> PTOy = new ArrayList<>();
+		public ArrayList<Object> PTOz = new ArrayList<>();
+		public ArrayList<Object> PTRot = new ArrayList<>();
+		public ArrayList<Object> FTile = new ArrayList<>();
+		public ArrayList<Object> FSide = new ArrayList<>();
+		public ArrayList<Object> BoxX1 = new ArrayList<>();
+		public ArrayList<Object> BoxZ1 = new ArrayList<>();
+		public ArrayList<Object> BoxX2 = new ArrayList<>();
+		public ArrayList<Object> BoxZ2 = new ArrayList<>();
 
 		public void read(CompoundTag nbt, HolderLookup.Provider lookupProvider) {
 			GiftsCollected = nbt.getDoubleOr("GiftsCollected", 0);
@@ -158,6 +175,12 @@ public class MinescapeModVariables {
 			TileFronts = NbtArrayLists.loadGlobalWorld(nbt.getListOrEmpty("TileFronts"), lookupProvider);
 			TileBacks = NbtArrayLists.loadGlobalWorld(nbt.getListOrEmpty("TileBacks"), lookupProvider);
 			TileSizes = NbtArrayLists.loadGlobalWorld(nbt.getListOrEmpty("TileSizes"), lookupProvider);
+			TileLefts = NbtArrayLists.loadGlobalWorld(nbt.getListOrEmpty("TileLefts"), lookupProvider);
+			TileRights = NbtArrayLists.loadGlobalWorld(nbt.getListOrEmpty("TileRights"), lookupProvider);
+			TileFacingF = NbtArrayLists.loadGlobalWorld(nbt.getListOrEmpty("TileFacingF"), lookupProvider);
+			TileFacingB = NbtArrayLists.loadGlobalWorld(nbt.getListOrEmpty("TileFacingB"), lookupProvider);
+			TileFacingL = NbtArrayLists.loadGlobalWorld(nbt.getListOrEmpty("TileFacingL"), lookupProvider);
+			TileFacingR = NbtArrayLists.loadGlobalWorld(nbt.getListOrEmpty("TileFacingR"), lookupProvider);
 			GoldGifts = nbt.getDoubleOr("GoldGifts", 0);
 			GoldGiftMultiplier = nbt.getDoubleOr("GoldGiftMultiplier", 0);
 			GoldGiftsSTR = nbt.getStringOr("GoldGiftsSTR", "");
@@ -166,6 +189,17 @@ public class MinescapeModVariables {
 			playersBeaconed = nbt.getDoubleOr("playersBeaconed", 0);
 			playersAlive = nbt.getDoubleOr("playersAlive", 0);
 			GiftsSTR = nbt.getStringOr("GiftsSTR", "");
+			PTDef = NbtArrayLists.loadGlobalWorld(nbt.getListOrEmpty("PTDef"), lookupProvider);
+			PTOx = NbtArrayLists.loadGlobalWorld(nbt.getListOrEmpty("PTOx"), lookupProvider);
+			PTOy = NbtArrayLists.loadGlobalWorld(nbt.getListOrEmpty("PTOy"), lookupProvider);
+			PTOz = NbtArrayLists.loadGlobalWorld(nbt.getListOrEmpty("PTOz"), lookupProvider);
+			PTRot = NbtArrayLists.loadGlobalWorld(nbt.getListOrEmpty("PTRot"), lookupProvider);
+			FTile = NbtArrayLists.loadGlobalWorld(nbt.getListOrEmpty("FTile"), lookupProvider);
+			FSide = NbtArrayLists.loadGlobalWorld(nbt.getListOrEmpty("FSide"), lookupProvider);
+			BoxX1 = NbtArrayLists.loadGlobalWorld(nbt.getListOrEmpty("BoxX1"), lookupProvider);
+			BoxZ1 = NbtArrayLists.loadGlobalWorld(nbt.getListOrEmpty("BoxZ1"), lookupProvider);
+			BoxX2 = NbtArrayLists.loadGlobalWorld(nbt.getListOrEmpty("BoxX2"), lookupProvider);
+			BoxZ2 = NbtArrayLists.loadGlobalWorld(nbt.getListOrEmpty("BoxZ2"), lookupProvider);
 		}
 
 		public CompoundTag save(CompoundTag nbt, HolderLookup.Provider lookupProvider) {
@@ -176,6 +210,12 @@ public class MinescapeModVariables {
 			nbt.put("TileFronts", NbtArrayLists.saveGlobalWorld(TileFronts));
 			nbt.put("TileBacks", NbtArrayLists.saveGlobalWorld(TileBacks));
 			nbt.put("TileSizes", NbtArrayLists.saveGlobalWorld(TileSizes));
+			nbt.put("TileLefts", NbtArrayLists.saveGlobalWorld(TileLefts));
+			nbt.put("TileRights", NbtArrayLists.saveGlobalWorld(TileRights));
+			nbt.put("TileFacingF", NbtArrayLists.saveGlobalWorld(TileFacingF));
+			nbt.put("TileFacingB", NbtArrayLists.saveGlobalWorld(TileFacingB));
+			nbt.put("TileFacingL", NbtArrayLists.saveGlobalWorld(TileFacingL));
+			nbt.put("TileFacingR", NbtArrayLists.saveGlobalWorld(TileFacingR));
 			nbt.putDouble("GoldGifts", GoldGifts);
 			nbt.putDouble("GoldGiftMultiplier", GoldGiftMultiplier);
 			nbt.putString("GoldGiftsSTR", GoldGiftsSTR);
@@ -184,6 +224,17 @@ public class MinescapeModVariables {
 			nbt.putDouble("playersBeaconed", playersBeaconed);
 			nbt.putDouble("playersAlive", playersAlive);
 			nbt.putString("GiftsSTR", GiftsSTR);
+			nbt.put("PTDef", NbtArrayLists.saveGlobalWorld(PTDef));
+			nbt.put("PTOx", NbtArrayLists.saveGlobalWorld(PTOx));
+			nbt.put("PTOy", NbtArrayLists.saveGlobalWorld(PTOy));
+			nbt.put("PTOz", NbtArrayLists.saveGlobalWorld(PTOz));
+			nbt.put("PTRot", NbtArrayLists.saveGlobalWorld(PTRot));
+			nbt.put("FTile", NbtArrayLists.saveGlobalWorld(FTile));
+			nbt.put("FSide", NbtArrayLists.saveGlobalWorld(FSide));
+			nbt.put("BoxX1", NbtArrayLists.saveGlobalWorld(BoxX1));
+			nbt.put("BoxZ1", NbtArrayLists.saveGlobalWorld(BoxZ1));
+			nbt.put("BoxX2", NbtArrayLists.saveGlobalWorld(BoxX2));
+			nbt.put("BoxZ2", NbtArrayLists.saveGlobalWorld(BoxZ2));
 			return nbt;
 		}
 
@@ -211,16 +262,22 @@ public class MinescapeModVariables {
 		}, instance -> instance.save(new CompoundTag(), level.registryAccess())));
 		boolean _syncDirty = false;
 		public double playersDead = 0;
-		public double GeneratedGifts = 0;
+		public double GeneratedGifts = 0.0;
+		public boolean IsCollapse = false;
+		public double level = 0;
 
 		public void read(CompoundTag nbt, HolderLookup.Provider lookupProvider) {
 			playersDead = nbt.getDoubleOr("playersDead", 0);
 			GeneratedGifts = nbt.getDoubleOr("GeneratedGifts", 0);
+			IsCollapse = nbt.getBooleanOr("IsCollapse", false);
+			level = nbt.getDoubleOr("level", 0);
 		}
 
 		public CompoundTag save(CompoundTag nbt, HolderLookup.Provider lookupProvider) {
 			nbt.putDouble("playersDead", playersDead);
 			nbt.putDouble("GeneratedGifts", GeneratedGifts);
+			nbt.putBoolean("IsCollapse", IsCollapse);
+			nbt.putDouble("level", level);
 			return nbt;
 		}
 

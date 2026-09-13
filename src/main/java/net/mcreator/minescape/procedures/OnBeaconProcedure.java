@@ -28,9 +28,56 @@ public class OnBeaconProcedure {
 						_level.playLocalSound(x, y, z, BuiltInRegistries.SOUND_EVENT.getValue(Identifier.parse("minescape:beaconenter")), SoundSource.PLAYERS, (float) 0.25, 1, false);
 					}
 				}
-				MinescapeModVariables.WorldVariables.get(world).playersBeaconed = MinescapeModVariables.WorldVariables.get(world).playersBeaconed + 1;
-				MinescapeModVariables.WorldVariables.get(world).playersAlive = MinescapeModVariables.WorldVariables.get(world).playersAlive - 1;
+				MinescapeModVariables.WorldVariables.get(world).playersBeaconed = new Object() {
+					public double change(Object _obj) {
+						if (_obj instanceof Integer _i)
+							return _i + 1;
+						if (_obj instanceof Long _l)
+							return _l + 1;
+						if (_obj instanceof Float _f)
+							return _f + 1.0f;
+						if (_obj instanceof Double _d)
+							return _d + 1.0d;
+						if (_obj instanceof Number _n)
+							return _n.doubleValue() + 1;
+						return 0;
+					}
+				}.change(MinescapeModVariables.WorldVariables.get(world).playersBeaconed);
+				MinescapeModVariables.WorldVariables.get(world).playersAlive = new Object() {
+					public double change(Object _obj) {
+						if (_obj instanceof Integer _i)
+							return _i + -1;
+						if (_obj instanceof Long _l)
+							return _l + -1;
+						if (_obj instanceof Float _f)
+							return _f + -1.0f;
+						if (_obj instanceof Double _d)
+							return _d + -1.0d;
+						if (_obj instanceof Number _n)
+							return _n.doubleValue() + -1;
+						return 0;
+					}
+				}.change(MinescapeModVariables.WorldVariables.get(world).playersAlive);
 				MinescapeModVariables.WorldVariables.get(world).markSyncDirty();
+			}
+			if (MinescapeModVariables.WorldVariables.get(world).playersAlive == 0 && MinescapeModVariables.WorldVariables.get(world).playersBeaconed >= 1) {
+				MinescapeModVariables.MapVariables.get(world).IsCollapse = false;
+				MinescapeModVariables.MapVariables.get(world).level = new Object() {
+					public double change(Object _obj) {
+						if (_obj instanceof Integer _i)
+							return _i + 1;
+						if (_obj instanceof Long _l)
+							return _l + 1;
+						if (_obj instanceof Float _f)
+							return _f + 1.0f;
+						if (_obj instanceof Double _d)
+							return _d + 1.0d;
+						if (_obj instanceof Number _n)
+							return _n.doubleValue() + 1;
+						return 0;
+					}
+				}.change(MinescapeModVariables.MapVariables.get(world).level);
+				MinescapeModVariables.MapVariables.get(world).markSyncDirty();
 			}
 		}
 	}

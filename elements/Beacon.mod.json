@@ -89,7 +89,7 @@
     "immuneToWither": true,
     "immuneToDragonBreath": true,
     "mobDrop": "",
-    "livingSound": "CUSTOM:beaconambience",
+    "livingSound": "",
     "hurtSound": "entity.generic.hurt",
     "deathSound": "entity.generic.death",
     "stepSound": "",

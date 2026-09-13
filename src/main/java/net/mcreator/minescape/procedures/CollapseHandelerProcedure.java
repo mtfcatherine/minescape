@@ -1,18 +1,33 @@
 package net.mcreator.minescape.procedures;
 
 import net.minecraft.world.phys.Vec3;
+import net.minecraft.world.phys.Vec2;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.server.permissions.LevelBasedPermissionSet;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.network.chat.Component;
 import net.minecraft.core.BlockPos;
+import net.minecraft.commands.CommandSourceStack;
+import net.minecraft.commands.CommandSource;
 
 import net.mcreator.minescape.network.MinescapeModVariables;
 import net.mcreator.minescape.init.MinescapeModEntities;
 
 public class CollapseHandelerProcedure {
-	public static void execute(LevelAccessor world) {
+	public static void execute(LevelAccessor world, double x, double y, double z) {
 		double i = 0;
+		if (world instanceof ServerLevel _level)
+			_level.getServer().getCommands().performPrefixedCommand(
+					new CommandSourceStack(CommandSource.NULL, new Vec3(x, y, z), Vec2.ZERO, _level, LevelBasedPermissionSet.OWNER, "", Component.literal(""), _level.getServer(), null).withSuppressedOutput(),
+					"playsound minescape:beaconspawn master @a ~ ~ ~ 0.2");
+		if (world instanceof ServerLevel _level) {
+			Entity entityToSpawn = MinescapeModEntities.BEACON.get().spawn(_level, new BlockPos(0, 0, 0), EntitySpawnReason.MOB_SUMMONED);
+			if (entityToSpawn != null) {
+				entityToSpawn.setYRot(world.getRandom().nextFloat() * 360F);
+			}
+		}
 		for (Object arraylistiterator : MinescapeModVariables.WorldVariables.get(world).NodeGiftPositions) {
 			if (world instanceof ServerLevel _level) {
 				Entity entityToSpawn = MinescapeModEntities.GOLD_GIFT.get().spawn(_level,
@@ -24,8 +39,6 @@ public class CollapseHandelerProcedure {
 					entityToSpawn.setYRot(world.getRandom().nextFloat() * 360F);
 				}
 			}
-			MinescapeModVariables.WorldVariables.get(world).GiftsCollected = 0;
-			MinescapeModVariables.WorldVariables.get(world).markSyncDirty();
 			i = new Object() {
 				public double change(Object _obj) {
 					if (_obj instanceof Integer _i)

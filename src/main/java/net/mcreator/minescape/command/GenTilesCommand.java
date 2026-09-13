@@ -33,7 +33,7 @@ public class GenTilesCommand {
 					if (entity != null)
 						direction = entity.getDirection();
 
-					GenerateTilesProcedure.execute(world, x, y, z, arguments);
+					GenerateTilesProcedure.execute(world, x, y, z, arguments, entity);
 					return 0;
 				})));
 	}

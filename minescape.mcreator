@@ -470,6 +470,10 @@
             "type": "cmdcontext"
           },
           {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
             "name": "x",
             "type": "number"
           },
@@ -595,6 +599,18 @@
       "metadata": {
         "dependencies": [
           {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
             "name": "world",
             "type": "world"
           }
@@ -626,36 +642,79 @@
       "path": "~/Procedures/Sub-procedures"
     },
     {
-      "name": "TilesDefaults",
+      "name": "OnDeath",
       "type": "procedure",
       "compiles": true,
       "locked_code": false,
-      "registry_name": "tilesdefaults",
+      "registry_name": "on_death",
       "metadata": {
-        "files": [
-          "src/main/java/net/mcreator/minescape/procedures/TilesDefaultsProcedure.java"
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
         ],
+        "files": [
+          "src/main/java/net/mcreator/minescape/procedures/OnDeathProcedure.java"
+        ]
+      },
+      "path": "~/Procedures/Sub-procedures"
+    },
+    {
+      "name": "MainPlayerEntersDimension",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "main_player_enters_dimension",
+      "metadata": {
         "dependencies": [
           {
             "name": "world",
             "type": "world"
           }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/minescape/procedures/MainPlayerEntersDimensionProcedure.java"
         ]
       },
-      "path": "~/Procedures"
+      "path": "~/Procedures/Sub-procedures"
     },
     {
-      "name": "TilesDefaultsCmd",
-      "type": "command",
+      "name": "MainPlayerLeavesDimension",
+      "type": "procedure",
       "compiles": true,
       "locked_code": false,
-      "registry_name": "tilesdefaultscmd",
+      "registry_name": "main_player_leaves_dimension",
       "metadata": {
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
         "files": [
-          "src/main/java/net/mcreator/minescape/command/TilesDefaultsCmdCommand.java"
+          "src/main/java/net/mcreator/minescape/procedures/MainPlayerLeavesDimensionProcedure.java"
         ]
       },
-      "path": "~/Commands"
+      "path": "~/Procedures/Sub-procedures"
+    },
+    {
+      "name": "Main",
+      "type": "dimension",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "main",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/minescape/world/dimension/MainDimension.java",
+          "src/main/resources/data/minescape/dimension/main.json",
+          "src/main/resources/data/minescape/dimension_type/main.json"
+        ]
+      }
     }
   ],
   "variable_elements": [
@@ -687,37 +746,73 @@
       "name": "NodeGiftPositions",
       "type": "arraylist",
       "scope": "world",
-      "value": "new ArrayList<>()"
+      "value": "new ArrayList\u003c\u003e()"
     },
     {
       "name": "TileIds",
       "type": "arraylist",
       "scope": "world",
-      "value": "new ArrayList<>()"
+      "value": "new ArrayList\u003c\u003e()"
     },
     {
       "name": "TileWeights",
       "type": "arraylist",
       "scope": "world",
-      "value": "new ArrayList<>()"
+      "value": "new ArrayList\u003c\u003e()"
     },
     {
       "name": "TileFronts",
       "type": "arraylist",
       "scope": "world",
-      "value": "new ArrayList<>()"
+      "value": "new ArrayList\u003c\u003e()"
     },
     {
       "name": "TileBacks",
       "type": "arraylist",
       "scope": "world",
-      "value": "new ArrayList<>()"
+      "value": "new ArrayList\u003c\u003e()"
     },
     {
       "name": "TileSizes",
       "type": "arraylist",
       "scope": "world",
-      "value": "new ArrayList<>()"
+      "value": "new ArrayList\u003c\u003e()"
+    },
+    {
+      "name": "TileLefts",
+      "type": "arraylist",
+      "scope": "world",
+      "value": "new ArrayList\u003c\u003e()"
+    },
+    {
+      "name": "TileRights",
+      "type": "arraylist",
+      "scope": "world",
+      "value": "new ArrayList\u003c\u003e()"
+    },
+    {
+      "name": "TileFacingF",
+      "type": "arraylist",
+      "scope": "world",
+      "value": "new ArrayList\u003c\u003e()"
+    },
+    {
+      "name": "TileFacingB",
+      "type": "arraylist",
+      "scope": "world",
+      "value": "new ArrayList\u003c\u003e()"
+    },
+    {
+      "name": "TileFacingL",
+      "type": "arraylist",
+      "scope": "world",
+      "value": "new ArrayList\u003c\u003e()"
+    },
+    {
+      "name": "TileFacingR",
+      "type": "arraylist",
+      "scope": "world",
+      "value": "new ArrayList\u003c\u003e()"
     },
     {
       "name": "GoldGifts",
@@ -771,13 +866,91 @@
       "name": "GeneratedGifts",
       "type": "number",
       "scope": "map",
-      "value": "0"
+      "value": "0.0"
     },
     {
       "name": "GiftsSTR",
       "type": "string",
       "scope": "world",
       "value": ""
+    },
+    {
+      "name": "PTDef",
+      "type": "arraylist",
+      "scope": "world",
+      "value": "new ArrayList\u003c\u003e()"
+    },
+    {
+      "name": "PTOx",
+      "type": "arraylist",
+      "scope": "world",
+      "value": "new ArrayList\u003c\u003e()"
+    },
+    {
+      "name": "PTOy",
+      "type": "arraylist",
+      "scope": "world",
+      "value": "new ArrayList\u003c\u003e()"
+    },
+    {
+      "name": "PTOz",
+      "type": "arraylist",
+      "scope": "world",
+      "value": "new ArrayList\u003c\u003e()"
+    },
+    {
+      "name": "PTRot",
+      "type": "arraylist",
+      "scope": "world",
+      "value": "new ArrayList\u003c\u003e()"
+    },
+    {
+      "name": "FTile",
+      "type": "arraylist",
+      "scope": "world",
+      "value": "new ArrayList\u003c\u003e()"
+    },
+    {
+      "name": "FSide",
+      "type": "arraylist",
+      "scope": "world",
+      "value": "new ArrayList\u003c\u003e()"
+    },
+    {
+      "name": "BoxX1",
+      "type": "arraylist",
+      "scope": "world",
+      "value": "new ArrayList\u003c\u003e()"
+    },
+    {
+      "name": "BoxZ1",
+      "type": "arraylist",
+      "scope": "world",
+      "value": "new ArrayList\u003c\u003e()"
+    },
+    {
+      "name": "BoxX2",
+      "type": "arraylist",
+      "scope": "world",
+      "value": "new ArrayList\u003c\u003e()"
+    },
+    {
+      "name": "BoxZ2",
+      "type": "arraylist",
+      "scope": "world",
+      "value": "new ArrayList\u003c\u003e()"
+    },
+    {
+      "name": "IsCollapse",
+      "type": "logic",
+      "scope": "map",
+      "value": "false"
+    },
+    {
+      "name": "level",
+      "type": "number",
+      "scope": "map",
+      "value": "0"
     }
   ],
   "sound_elements": [
@@ -822,7 +995,11 @@
       "subtitle": "Beacon spawned"
     }
   ],
-  "tag_elements": {},
+  "tag_elements": {
+    "BLOCKS:minecraft:overworld_carver_replaceables": [
+      "~Main@Blocks.STRUCTURE_VOID"
+    ]
+  },
   "tab_element_order": {},
   "language_map": {
     "en_us": {

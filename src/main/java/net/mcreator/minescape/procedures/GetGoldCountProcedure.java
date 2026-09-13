@@ -6,7 +6,7 @@ import net.mcreator.minescape.network.MinescapeModVariables;
 
 public class GetGoldCountProcedure {
 	public static String execute(LevelAccessor world) {
-		MinescapeModVariables.WorldVariables.get(world).GoldGiftsSTR = new java.text.DecimalFormat("( ##.## )").format(MinescapeModVariables.WorldVariables.get(world).GoldGifts);
+		MinescapeModVariables.WorldVariables.get(world).GoldGiftsSTR = "§l" + (new java.text.DecimalFormat("##.##").format(MinescapeModVariables.WorldVariables.get(world).GoldGifts));
 		MinescapeModVariables.WorldVariables.get(world).markSyncDirty();
 		return MinescapeModVariables.WorldVariables.get(world).GoldGiftsSTR;
 	}

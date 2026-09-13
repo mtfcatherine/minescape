@@ -28,10 +28,10 @@ public class OnCollectProcedure {
 				MinescapeModVariables.WorldVariables.get(world).markSyncDirty();
 				if (world instanceof Level _level) {
 					if (!_level.isClientSide()) {
-						_level.playSound(null, BlockPos.containing(x, y, z), BuiltInRegistries.SOUND_EVENT.getValue(Identifier.parse("minescape:goldcollect")), SoundSource.MASTER, (float) 0.2,
+						_level.playSound(null, BlockPos.containing(x, y, z), BuiltInRegistries.SOUND_EVENT.getValue(Identifier.parse("minescape:goldcollect")), SoundSource.MASTER, (float) 0.45,
 								(float) Mth.nextDouble(RandomSource.create(), 0.99, 1.07));
 					} else {
-						_level.playLocalSound(x, y, z, BuiltInRegistries.SOUND_EVENT.getValue(Identifier.parse("minescape:goldcollect")), SoundSource.MASTER, (float) 0.2, (float) Mth.nextDouble(RandomSource.create(), 0.99, 1.07), false);
+						_level.playLocalSound(x, y, z, BuiltInRegistries.SOUND_EVENT.getValue(Identifier.parse("minescape:goldcollect")), SoundSource.MASTER, (float) 0.45, (float) Mth.nextDouble(RandomSource.create(), 0.99, 1.07), false);
 					}
 				}
 			} else if (entity instanceof NullGiftEntity) {
@@ -40,13 +40,13 @@ public class OnCollectProcedure {
 				MinescapeModVariables.WorldVariables.get(world).markSyncDirty();
 				if (world instanceof Level _level) {
 					if (!_level.isClientSide()) {
-						_level.playSound(null, BlockPos.containing(x, y, z), BuiltInRegistries.SOUND_EVENT.getValue(Identifier.parse("minescape:collect")), SoundSource.MASTER, (float) 0.2, (float) Mth.nextDouble(RandomSource.create(), 0.97, 1.05));
+						_level.playSound(null, BlockPos.containing(x, y, z), BuiltInRegistries.SOUND_EVENT.getValue(Identifier.parse("minescape:collect")), SoundSource.MASTER, (float) 0.45, (float) Mth.nextDouble(RandomSource.create(), 0.97, 1.05));
 					} else {
-						_level.playLocalSound(x, y, z, BuiltInRegistries.SOUND_EVENT.getValue(Identifier.parse("minescape:collect")), SoundSource.MASTER, (float) 0.2, (float) Mth.nextDouble(RandomSource.create(), 0.97, 1.05), false);
+						_level.playLocalSound(x, y, z, BuiltInRegistries.SOUND_EVENT.getValue(Identifier.parse("minescape:collect")), SoundSource.MASTER, (float) 0.45, (float) Mth.nextDouble(RandomSource.create(), 0.97, 1.05), false);
 					}
 				}
 				if (MinescapeModVariables.WorldVariables.get(world).GiftsCollected == MinescapeModVariables.MapVariables.get(world).GeneratedGifts) {
-					CollapseHandelerProcedure.execute(world);
+					CollapseHandelerProcedure.execute(world, x, y, z);
 				}
 			} else {
 				MinescapeMod.LOGGER.info("how the fuck did this fire??");

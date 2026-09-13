@@ -13,6 +13,12 @@ public class ClearTilesProcedure {
 		MinescapeModVariables.WorldVariables.get(world).TileFronts.clear();
 		MinescapeModVariables.WorldVariables.get(world).TileBacks.clear();
 		MinescapeModVariables.WorldVariables.get(world).TileSizes.clear();
+		MinescapeModVariables.WorldVariables.get(world).TileLefts.clear();
+		MinescapeModVariables.WorldVariables.get(world).TileRights.clear();
+		MinescapeModVariables.WorldVariables.get(world).TileFacingF.clear();
+		MinescapeModVariables.WorldVariables.get(world).TileFacingB.clear();
+		MinescapeModVariables.WorldVariables.get(world).TileFacingL.clear();
+		MinescapeModVariables.WorldVariables.get(world).TileFacingR.clear();
 		MinescapeModVariables.WorldVariables.get(world).NodeGiftPositions.clear();
 		MinescapeModVariables.WorldVariables.get(world).markSyncDirty();
 		if (world instanceof ServerLevel _level) {
